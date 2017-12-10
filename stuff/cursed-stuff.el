@@ -24,28 +24,28 @@
 
 ;;; Code:
 
-(tool-bar-mode -1)
+(require 'cursed-ui)
 
-(menu-bar-mode -1)
-
-(setq ring-bell-function 'ignore)
-
-(use-package ace-window
-  :defer t
-  :bind ("M-p" . ace-window))
-
-(use-package ace-jump-mode
-  :defer t
-  :commands ace-jump-mode	      
-  :init				      
-  (bind-key "C-c SPC" 'ace-jump-mode))
-
+;;
 (use-package helm
   :defer t
   :bind (("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files))
   :config
-  (helm-mode 1))
+  (helm-mode))
+
+;;
+(use-package projectile
+  :demand
+;  :init (setq projectile-use-git-grep t)
+  :config
+  (projectile-global-mode t))
+
+(require 'cursed-emacs-lisp-mode)
+(require 'cursed-json-mode)
+(require 'cursed-markdown-mode)
+(require 'cursed-scala-mode)
+(require 'cursed-python-mode)
 
 (provide 'cursed-stuff)
 ;;; cursed-stuff.el ends here

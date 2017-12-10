@@ -30,14 +30,10 @@
 (setq package-enable-at-startup nil)
 
 ;; Load Emacs 24's package system
-;; Add MELPA repository
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-		    (not (gnutls-available-p))))
-       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
-  (add-to-list 'package-archives (cons "melpa" url) t))
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")))
 (package-initialize)
 
 ;; Install 'use-package' if necessary
@@ -49,6 +45,9 @@
 (eval-when-compile
   (require 'use-package)
   (setq use-package-always-ensure t))
+
+;; Normalize configuration and data paths packages
+(use-package no-littering)
 
 (provide 'cursed-packages)
 ;;; cursed-packages.el ends here

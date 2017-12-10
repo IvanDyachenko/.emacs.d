@@ -38,14 +38,20 @@
 (defvar cursed-core-dir (expand-file-name "core" cursed-dir)
   "The path to the core directory of the Emacs cursed configuration")
 
+(defvar cursed-stuff-dir (expand-file-name "stuff" cursed-dir)
+  "The path to the stuff directory of the Emacs cursed configuration")
+
 (setq custom-file (expand-file-name "custom.el" cursed-dir))
 (load custom-file)
 
 ;; Add cursed directories to Emacs 'load-path
 (add-to-list 'load-path cursed-core-dir)
+(add-to-list 'load-path cursed-stuff-dir)
 
 ;; The core loading
 (require 'cursed-packages)
+
+;; The cursed stuff loading
 (require 'cursed-stuff)
 
 (provide 'init)
