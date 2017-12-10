@@ -49,7 +49,7 @@
 (add-to-list 'load-path cursed-stuff-dir)
 
 ;; The core loading
-(require 'cursed-packages)
+(require 'cursed-core)
 
 ;; The cursed stuff loading
 (require 'cursed-stuff)

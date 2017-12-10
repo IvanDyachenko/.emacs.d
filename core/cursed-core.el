@@ -33,6 +33,9 @@
 (setq auto-save-file-name-transforms `((".*" ,savedir t)))
 
 ;;
+(require 'cursed-packages)
+
+;;
 (use-package exec-path-from-shell
   :config
   (exec-path-from-shell-initialize))
