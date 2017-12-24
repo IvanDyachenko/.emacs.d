@@ -30,11 +30,19 @@
 
 (use-package sbt-mode
   :commands (sbt-start sbt-command)
+  :hook (sbt-mode . (lambda ()
+                      (progn
+                        (setq-local comint-use-prompt-regexp nil)
+                        (setq-local inhibit-field-text-motion nil))))
   :config
   (substitute-key-definition
    'minibuffer-complete-word
    'self-insert-command
    minibuffer-local-completion-map))
+
+;;
+(setq-local comint-use-prompt-regexp nil)
+(setq-local inhibit-field-text-motion nil)
 
 (use-package scala-mode
   :interpreter ("scala" . scala-mode))

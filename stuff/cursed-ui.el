@@ -48,12 +48,21 @@
 ;; Turn off ring bell
 (setq ring-bell-function 'ignore)
 
+;;
+(set-face-attribute 'default nil :height 130)
+
 ;; Load darktooth theme
 (use-package darktooth-theme)
 ;; Load gruvbox theme
 ;; (use-package gruvbox-theme
 ;;   :config
 ;;   (load-theme 'gruvbox-dark-hard t))
+
+;; Use space instead of tabs when indenting
+(setq-default indent-tabs-mode nil)
+(use-package smart-tabs-mode
+  :config
+  (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'python))
 
 ;; Turn off global line numbering
 (use-package linum-off)
@@ -98,6 +107,9 @@
   :commands ace-jump-mode	      
   :init				      
   (bind-key "C-c SPC" 'ace-jump-mode))
+
+;;
+(use-package nyan-mode)
 
 (provide 'cursed-ui)
 ;;; cursed-ui.el ends here
