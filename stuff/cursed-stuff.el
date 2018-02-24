@@ -41,6 +41,7 @@
   :config
   (projectile-global-mode t))
 
+(require 'cursed-vcs)
 (require 'cursed-emacs-lisp-mode)
 (require 'cursed-json-mode)
 (require 'cursed-markdown-mode)

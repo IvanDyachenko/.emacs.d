@@ -35,6 +35,9 @@
 ;;
 (require 'cursed-packages)
 
+;; Using bash as the shell inside Emacs
+(setq shell-file-name "/bin/bash")
+
 ;;
 (use-package exec-path-from-shell
   :config
