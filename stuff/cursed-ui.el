@@ -52,11 +52,24 @@
 (set-face-attribute 'default nil :height 130)
 
 ;; Load darktooth theme
-(use-package darktooth-theme)
+;; (use-package darktooth-theme)
+
 ;; Load gruvbox theme
 ;; (use-package gruvbox-theme
 ;;   :config
 ;;   (load-theme 'gruvbox-dark-hard t))
+
+;; Load base16 theme
+;; (use-package base16-theme
+;;  :ensure t
+;;  :init
+;;  (load-theme 'base16-default-dark t))
+
+;; Load dracula theme
+(use-package dracula-theme
+  :config
+  (load-theme 'dracula t))
+
 
 ;; Use space instead of tabs when indenting
 (setq-default indent-tabs-mode nil)
@@ -71,7 +84,9 @@
 (use-package nlinum
   :after linum-off
   :config
+  (setq nlinum-relative-redisplay-delay 0)
   (setq nlinum-format "%4d ")
+  (setq nlinum-highlight-current-line t)
   (global-nlinum-mode))
 
 ;; Icons
