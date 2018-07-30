@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2017  Ivan Dyachenko
 
-;; Author: Ivan Dyachenko <ivandyach@ivandyach-osx2>
+;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify

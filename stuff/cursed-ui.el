@@ -22,6 +22,7 @@
 
 ;; 
 
+
 ;;; Code:
 
 ;; Don't show startup screen
@@ -52,7 +53,7 @@
 (set-face-attribute 'default nil :height 130)
 
 ;; Load darktooth theme
-;; (use-package darktooth-theme)
+(use-package darktooth-theme)
 
 ;; Load gruvbox theme
 ;; (use-package gruvbox-theme
@@ -61,15 +62,16 @@
 
 ;; Load base16 theme
 ;; (use-package base16-theme
-;;  :ensure t
-;;  :init
+;;   :config
 ;;  (load-theme 'base16-default-dark t))
 
 ;; Load dracula theme
-(use-package dracula-theme
-  :config
-  (load-theme 'dracula t))
+;; (use-package dracula-theme
+;;   :config
+;;   (load-theme 'dracula t))
 
+;; Load grayscale theme
+;; (use-package grayscale-theme)
 
 ;; Use space instead of tabs when indenting
 (setq-default indent-tabs-mode nil)
@@ -96,35 +98,25 @@
 ;;   :config
 ;;   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
-;;
 (use-package rainbow-delimiters
   :defer t
   :hook (prog-mode . rainbow-delimiters-mode))
 
-;;
 (use-package rainbow-mode
   :defer t
   :hook (prog-mode . rainbow-mode))
 
-;;
-(use-package centered-window-mode)
-
-;;
 (use-package ace-window
   :defer t
   :bind ("M-o" . ace-window)
   :config
   (setq aw-dispatch-always t))
 
-;;
 (use-package ace-jump-mode
   :defer t
   :commands ace-jump-mode	      
   :init				      
   (bind-key "C-c SPC" 'ace-jump-mode))
-
-;;
-(use-package nyan-mode)
 
 (provide 'cursed-ui)
 ;;; cursed-ui.el ends here
