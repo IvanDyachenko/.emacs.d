@@ -1,6 +1,6 @@
-;;; cursed-stuff.el --- cursed stuff                       -*- lexical-binding: t; -*-
+;;; cursed-c-mode.el --- cursed c mode               -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017  Ivan Dyachenko
+;; Copyright (C) 2018  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords: 
@@ -24,33 +24,15 @@
 
 ;;; Code:
 
-(require 'cursed-ui)
+(use-package company-irony
+  :config (add-to-list 'company-backends 'company-irony))
 
-(use-package helm
-  :defer t
-  :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files))
-  :config
-  (helm-mode))
+(use-package irony
+  :after (company-irony)
+  :hook ((c-mode . irony-mode)
+         (c++-mode . irony-mode)
+         (objc-mode . irony-mode)
+         (irony-mode . irony-cdb-autosetup-compile-options)))
 
-(use-package company
-  :hook (prog-mode . company-mode)
-  :config
-  (global-company-mode))
-
-(use-package projectile
-  :demand
-;;  :init (setq projectile-use-git-grep t)
-  :config
-  (projectile-global-mode t))
-
-(require 'cursed-vcs)
-(require 'cursed-emacs-lisp-mode)
-(require 'cursed-json-mode)
-(require 'cursed-markdown-mode)
-(require 'cursed-scala-mode)
-(require 'cursed-python-mode)
-(require 'cursed-c-mode)
-
-(provide 'cursed-stuff)
-;;; cursed-stuff.el ends here
+(provide 'cursed-c-mode)
+;;; cursed-c-mode.el ends here
