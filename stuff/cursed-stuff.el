@@ -51,6 +51,7 @@
 (require 'cursed-scala-mode)
 (require 'cursed-python-mode)
 (require 'cursed-c-mode)
+(require 'cursed-cmake-mode)
 (require 'cursed-rust-mode)
 
 (provide 'cursed-stuff)
