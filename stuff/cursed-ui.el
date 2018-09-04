@@ -75,9 +75,6 @@
 
 ;; Use space instead of tabs when indenting
 (setq-default indent-tabs-mode nil)
-(use-package smart-tabs-mode
-  :config
-  (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'python))
 
 ;; Turn off global line numbering
 (use-package linum-off)
@@ -90,13 +87,6 @@
   (setq nlinum-format "%4d ")
   (setq nlinum-highlight-current-line t)
   (global-nlinum-mode))
-
-;; Icons
-;; (use-package all-the-icons)
-;; (use-package all-the-icons-dired
-;;   :after all-the-icons
-;;   :config
-;;   (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
 (use-package rainbow-delimiters
   :defer t
