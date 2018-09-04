@@ -24,6 +24,9 @@
 
 ;;; Code:
 
+(use-package cc-mode
+  :mode ("\\.h\\'" . c++-mode))
+
 (use-package company-irony
   :config (add-to-list 'company-backends 'company-irony))
 
@@ -33,6 +36,22 @@
          (c++-mode . irony-mode)
          (objc-mode . irony-mode)
          (irony-mode . irony-cdb-autosetup-compile-options)))
+
+;; google-c-style
+(use-package google-c-style
+  :hook ((c-mode-common . google-set-c-style)
+         (c-mode-common . google-make-newline-indent)))
+
+;; clang-format
+(use-package clang-format
+  :after (cc-mode)
+  :bind (:map c-mode-base-map
+              ("C-c C-f" . clang-format-buffer))
+  :hook (before-save . (lambda()
+                         (when (or (eq major-mode 'c-mode)
+                                   (eq major-mode 'c++-mode)
+                                   (eq major-mode 'glsl-mode))
+                           (clang-format-buffer)))))
 
 (provide 'cursed-c-mode)
 ;;; cursed-c-mode.el ends here
