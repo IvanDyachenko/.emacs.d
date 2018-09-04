@@ -108,5 +108,14 @@
   :init				      
   (bind-key "C-c SPC" 'ace-jump-mode))
 
+;; (edit) aggresive-indent
+(use-package aggressive-indent
+  :diminish aggressive-indent-mode
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
+
+;; clean-aindent-mode
+(use-package clean-aindent-mode
+  :hook (prog-mode))
+
 (provide 'cursed-ui)
 ;;; cursed-ui.el ends here
