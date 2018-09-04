@@ -28,7 +28,7 @@
 (global-auto-revert-mode t)
 
 ;; Save backup files in custom directory
-(defvar savedir "~/.emacs.d/backup")
+(defvar savedir "~/.cache/emacs/")
 (setq backup-directory-alist `((".*" . ,savedir)))
 (setq auto-save-file-name-transforms `((".*" ,savedir t)))
 
