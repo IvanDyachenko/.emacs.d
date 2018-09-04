@@ -52,8 +52,13 @@
 ;;
 (set-face-attribute 'default nil :height 130)
 
+;; Load sanityinc tomorrow theme
+(use-package color-theme-sanityinc-tomorrow
+  :config
+  (color-theme-sanityinc-tomorrow-night))
+
 ;; Load darktooth theme
-(use-package darktooth-theme)
+;; (use-package darktooth-theme)
 
 ;; Load gruvbox theme
 ;; (use-package gruvbox-theme
