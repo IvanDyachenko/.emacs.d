@@ -51,6 +51,10 @@
 (use-package wakatime-mode
   :init (global-wakatime-mode))
 
+(use-package vlf
+  :config
+  (require 'vlf-setup)) 
+
 (require 'cursed-vcs)
 (require 'cursed-emacs-lisp-mode)
 (require 'cursed-json-mode)
