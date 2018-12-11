@@ -48,6 +48,9 @@
   :ensure t
   :init (global-flycheck-mode))
 
+(use-package wakatime-mode
+  :init (global-wakatime-mode))
+
 (require 'cursed-vcs)
 (require 'cursed-emacs-lisp-mode)
 (require 'cursed-json-mode)
