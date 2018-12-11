@@ -44,6 +44,10 @@
   :config
   (projectile-global-mode t))
 
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
 (require 'cursed-vcs)
 (require 'cursed-emacs-lisp-mode)
 (require 'cursed-json-mode)
