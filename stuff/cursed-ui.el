@@ -52,10 +52,13 @@
 ;;
 (set-face-attribute 'default nil :height 130)
 
+;; Load challenger deep theme
+(use-package challenger-deep-theme) 
+
 ;; Load sanityinc tomorrow theme
-(use-package color-theme-sanityinc-tomorrow
-  :config
-  (color-theme-sanityinc-tomorrow-night))
+;; (use-package color-theme-sanityinc-tomorrow
+;;   :config
+;;   (color-theme-sanityinc-tomorrow-night))
 
 ;; Load darktooth theme
 ;; (use-package darktooth-theme)
@@ -68,7 +71,7 @@
 ;; Load base16 theme
 ;; (use-package base16-theme
 ;;   :config
-;;  (load-theme 'base16-default-dark t))
+;;   (load-theme 'base16-default-dark t))
 
 ;; Load dracula theme
 ;; (use-package dracula-theme
