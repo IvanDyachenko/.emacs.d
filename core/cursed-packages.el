@@ -49,5 +49,11 @@
 ;; Normalize configuration and data paths packages
 (use-package no-littering)
 
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-interval 4)
+  (auto-package-update-maybe))
+
 (provide 'cursed-packages)
 ;;; cursed-packages.el ends here
