@@ -50,7 +50,7 @@
 (setq ring-bell-function 'ignore)
 
 ;;
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 120)
 
 ;; Load challenger deep theme
 (use-package challenger-deep-theme) 
