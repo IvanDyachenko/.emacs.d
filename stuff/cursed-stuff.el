@@ -64,6 +64,8 @@
 (require 'cursed-c-mode)
 (require 'cursed-cmake-mode)
 (require 'cursed-rust-mode)
+(require 'cursed-javascript-mode)
+(require 'cursed-yaml)
 
 (provide 'cursed-stuff)
 ;;; cursed-stuff.el ends here
