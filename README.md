@@ -1,1 +1,1 @@
-#  Emacs cursed configuration :fire:
+#  Emacs cursed configuration
