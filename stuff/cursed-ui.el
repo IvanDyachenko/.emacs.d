@@ -125,5 +125,10 @@
 (use-package clean-aindent-mode
   :hook (prog-mode))
 
+;; Overrides function-key-map for preferred input-method to translate input sequences to english, so we can use Emacs bindings while non-default system layout is active
+(use-package reverse-im
+  :config
+  (reverse-im-activate "russian-computer"))
+
 (provide 'cursed-ui)
 ;;; cursed-ui.el ends here
