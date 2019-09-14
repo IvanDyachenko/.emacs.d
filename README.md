@@ -10,6 +10,14 @@
 git clone https://github.com/IvanDyachenko/.emacs.d.git ~/.emacs.d
 ```
 
+## Programming and markup languages
+
+### Scala language
+
+`cursed-scala-mode.el` provides support for the Scala language. Some of them are:
+
+  - **Metals**. [Metals](https://scalameta.org/metals/) works in Emacs thanks to the the [lsp-mode](https://github.com/emacs-lsp/lsp-mode) package.
+
 ## License
 
 MIT License
