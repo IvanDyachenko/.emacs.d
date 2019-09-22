@@ -37,6 +37,11 @@
 ;; Don't insert instructions in the *scratch* buffer
 (setq initial-scratch-message "")
 
+;; Internal border
+(set-frame-parameter nil 'internal-border-width 3)
+
+;; (show-paren-mode)
+
 ;; Turn off toolbar
 (tool-bar-mode -1)
 
@@ -49,20 +54,27 @@
 ;; Turn off ring bell
 (setq ring-bell-function 'ignore)
 
-;;
+;; Transparent titlebar:
+;;   https://github.com/MaxSt/dotfiles/blob/master/emacs.d/config.org#disable-menubar
+;;   https://github.com/d12frosted/homebrew-emacs-plus/blob/master/Formula/emacs-plus.rb#L98
+;;   https://github.com/d12frosted/homebrew-emacs-plus/issues/55
+;;   https://www.gnu.org/software/emacs/manual/html_node/elisp/Properties-in-Mode.html#Properties-in-Mode
+(when (memq window-system '(mac ns))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
+(setq frame-title-format "%b")
+
+;; Fringe
+(define-fringe-bitmap 'tilde [64 168 16] nil nil 'center)
+(set-fringe-bitmap-face 'tilde 'fringe)
+
+;; Font
 ;; (set-face-attribute 'default nil :height 120)
 
 ;; Load challenger deep theme
 (use-package challenger-deep-theme
   :ensure t
-  :init (load-theme 'challenger-deep t)
-  :config
-  (set-face-attribute 'org-level-1 nil :background "#2b2942")
-  (set-face-attribute 'org-level-2 nil :background "#2b2942" :foreground (face-attribute 'warning :foreground))
-  (set-face-attribute 'org-level-3 nil :background "#2b2942" :foreground (face-attribute 'error :foreground))
-  (set-face-attribute 'org-level-4 nil :background "#2b2942" :foreground (face-attribute 'success :foreground))
-  (set-face-attribute 'org-level-5 nil :background "#2b2942" :foreground (face-attribute 'org-special-keyword :foreground))
-  (set-face-attribute 'org-level-6 nil :background "#2b2942" :foreground (face-attribute 'org-table :foreground)))
+  :init (load-theme 'challenger-deep t))
 
 (use-package all-the-icons
   :config
