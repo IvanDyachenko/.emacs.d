@@ -23,9 +23,6 @@
 ;; 
 
 ;;; Code:
-
-(require 'cursed-ui)
-
 (use-package helm
   :defer t
   :bind (("M-x" . helm-M-x)
@@ -57,6 +54,7 @@
   :config
   (require 'vlf-setup)) 
 
+(require 'cursed-ui)
 (require 'cursed-vcs)
 (require 'cursed-emacs-lisp-mode)
 (require 'cursed-json-mode)
@@ -68,6 +66,7 @@
 (require 'cursed-rust-mode)
 (require 'cursed-javascript-mode)
 (require 'cursed-yaml)
+(require 'cursed-docker)
 
 (provide 'cursed-stuff)
 ;;; cursed-stuff.el ends here

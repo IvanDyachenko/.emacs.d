@@ -53,10 +53,6 @@
 ;; (set-face-attribute 'default nil :height 120)
 
 ;; Load challenger deep theme
-;; (use-package challenger-deep-theme
-;;   :config
-;;   (load-theme 'challenger-deep t))
-
 (use-package challenger-deep-theme
   :ensure t
   :init (load-theme 'challenger-deep t)
