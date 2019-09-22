@@ -50,10 +50,33 @@
 (setq ring-bell-function 'ignore)
 
 ;;
-(set-face-attribute 'default nil :height 120)
+;; (set-face-attribute 'default nil :height 120)
 
 ;; Load challenger deep theme
-(use-package challenger-deep-theme) 
+;; (use-package challenger-deep-theme
+;;   :config
+;;   (load-theme 'challenger-deep t))
+
+(use-package challenger-deep-theme
+  :ensure t
+  :init (load-theme 'challenger-deep t)
+  :config
+  (set-face-attribute 'org-level-1 nil :background "#2b2942")
+  (set-face-attribute 'org-level-2 nil :background "#2b2942" :foreground (face-attribute 'warning :foreground))
+  (set-face-attribute 'org-level-3 nil :background "#2b2942" :foreground (face-attribute 'error :foreground))
+  (set-face-attribute 'org-level-4 nil :background "#2b2942" :foreground (face-attribute 'success :foreground))
+  (set-face-attribute 'org-level-5 nil :background "#2b2942" :foreground (face-attribute 'org-special-keyword :foreground))
+  (set-face-attribute 'org-level-6 nil :background "#2b2942" :foreground (face-attribute 'org-table :foreground)))
+
+(use-package all-the-icons
+  :config
+  ;; org-mode ellipsis
+  (setq-default org-ellipsis (concat " " (all-the-icons-faicon "angle-down") " ")))
+
+(use-package all-the-icons-dired
+  :after (all-the-icons)
+  :init
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
 ;; Load sanityinc tomorrow theme
 ;; (use-package color-theme-sanityinc-tomorrow
@@ -61,7 +84,9 @@
 ;;   (color-theme-sanityinc-tomorrow-night))
 
 ;; Load darktooth theme
-;; (use-package darktooth-theme)
+;; (use-package darktooth-theme
+;;   :config
+;;   (load-theme 'darktooth t))
 
 ;; Load gruvbox theme
 ;; (use-package gruvbox-theme
@@ -72,6 +97,7 @@
 ;; (use-package base16-theme
 ;;   :config
 ;;   (load-theme 'base16-default-dark t))
+;;   (load-theme 'base16-google-dark t))
 
 ;; Load dracula theme
 ;; (use-package dracula-theme
@@ -80,6 +106,21 @@
 
 ;; Load grayscale theme
 ;; (use-package grayscale-theme)
+
+;; Load afternoon theme
+;; (use-package afternoon-theme
+;;   :config
+;;   (load-theme 'afternoon t))
+
+;; Load nimbus theme
+;; (use-package nimbus-theme
+;;   :config
+;;   (load-theme 'nimbus t))
+
+;; Load Gruvbox Dark Hard theme
+;; (use-package gruvbox-theme
+;;   :config
+;;   (load-theme 'gruvbox-dark-hard t))
 
 ;; Use space instead of tabs when indenting
 (setq-default indent-tabs-mode nil)
@@ -91,7 +132,7 @@
 (use-package nlinum
   :after linum-off
   :config
-  (setq nlinum-relative-redisplay-delay 0)
+;;  (setq nlinum-relative-redisplay-delay 0)
   (setq nlinum-format "%4d ")
   (setq nlinum-highlight-current-line t)
   (global-nlinum-mode))
@@ -117,9 +158,9 @@
   (bind-key "C-c SPC" 'ace-jump-mode))
 
 ;; (edit) aggresive-indent
-(use-package aggressive-indent
-  :diminish aggressive-indent-mode
-  :hook (emacs-lisp-mode . aggressive-indent-mode))
+;;(use-package aggressive-indent
+;;  :diminish aggressive-indent-mode
+;;  :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 ;; clean-aindent-mode
 (use-package clean-aindent-mode
