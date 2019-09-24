@@ -34,6 +34,9 @@
 ;; Don't display a splash screen on startup
 (setq inhibit-splash-screen t)
 
+;;
+(setq inhibit-startup-echo-area-message t)
+
 ;; Don't insert instructions in the *scratch* buffer
 (setq initial-scratch-message "")
 
@@ -68,6 +71,27 @@
 (define-fringe-bitmap 'tilde [64 168 16] nil nil 'center)
 (set-fringe-bitmap-face 'tilde 'fringe)
 
+
+;;(use-package dired-sidebar
+;;  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
+;;  :commands (dired-sidebar-toggle-sidebar)
+;;  :config
+;;  (setq dired-use-ls-dired nil)
+;;  (setq dired-sidebar-use-all-the-icons nil)
+;;  (setq dired-sidebar-use-term-integration t))
+
+;; Icons
+(use-package all-the-icons)
+
+;; Sidebar
+(use-package neotree
+  :after all-the-icons
+  :commands (neotree-toggle)
+  :bind (("C-x C-n" . neotree-toggle))
+  :config
+  (setq neo-window-width 35)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
 ;; Font
 ;; (set-face-attribute 'default nil :height 120)
 
@@ -75,16 +99,6 @@
 (use-package challenger-deep-theme
   :ensure t
   :init (load-theme 'challenger-deep t))
-
-(use-package all-the-icons
-  :config
-  ;; org-mode ellipsis
-  (setq-default org-ellipsis (concat " " (all-the-icons-faicon "angle-down") " ")))
-
-(use-package all-the-icons-dired
-  :after (all-the-icons)
-  :init
-  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
 ;; Load sanityinc tomorrow theme
 ;; (use-package color-theme-sanityinc-tomorrow
