@@ -17,7 +17,7 @@ It's [Magit](https://magit.vc/)! It's an interface to the version control system
 
 ### Scala language
 
-`cursed-scala-mode.el` provides support for the Scala language. Some of them are:
+`cursed-scala-mode.el` provides support for the Scala language:
 
   - [Metals](https://scalameta.org/metals/) works in Emacs thanks to the the [lsp-mode](https://github.com/emacs-lsp/lsp-mode) package.
 
