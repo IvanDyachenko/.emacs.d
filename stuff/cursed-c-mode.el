@@ -50,5 +50,13 @@
   :requires flycheck irony
   :hook ((flycheck-mode . flycheck-irony-setup)))
 
+;; https://github.com/Sarcasm/irony-mode/issues/507
+(setq irony-additional-clang-options
+      (append '("-I" "/usr/local/Cellar/llvm/9.0.0/include/c++/v1") irony-additional-clang-options))
+(setq irony-additional-clang-options
+      (append '("-I" "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include") irony-additional-clang-options))
+(setq irony-additional-clang-options
+      (append '("-std=c++17") irony-additional-clang-options))
+
 (provide 'cursed-c-mode)
 ;;; cursed-c-mode.el ends here
