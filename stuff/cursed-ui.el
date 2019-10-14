@@ -65,12 +65,14 @@
 (when (memq window-system '(mac ns))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
+
 (setq frame-title-format "%b")
+;; https://github.com/syl20bnr/spacemacs/issues/5633
+(setq frame-resize-pixelwise t)
 
 ;; Fringe
 (define-fringe-bitmap 'tilde [64 168 16] nil nil 'center)
 (set-fringe-bitmap-face 'tilde 'fringe)
-
 
 ;;(use-package dired-sidebar
 ;;  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
