@@ -25,6 +25,8 @@
 
 ;;; Code:
 
+(global-auto-revert-mode 1)
+
 ;; Don't show startup screen
 (setq inhibit-startup-screen t)
 
