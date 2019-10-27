@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Emacs 24 or greater.
+- [Emacs 24 or greater](https://www.gnu.org/software/emacs/)
 
 ## Installation
 
