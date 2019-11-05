@@ -43,16 +43,21 @@
   :init (global-flycheck-mode))
 
 (use-package lsp-mode
-  :init (setq lsp-prefer-flymake nil))
+  :init
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-enable-snippet nil)
+  :hook (scala-mode . lsp))
 
 (use-package lsp-ui
   :hook (lsp-mode . lsp-ui-mode))
 
-(use-package lsp-scala
-  :after scala-mode
-  :demand t
-  ;; Optional - enable lsp-scala automatically in scala files
-  :hook (scala-mode . lsp))
+(use-package company-lsp)
+
+;;(use-package lsp-scala
+;;  :after scala-mode
+;;  :demand t
+;;  ;; Optional - enable lsp-scala automatically in scala files
+;;  :hook (scala-mode . lsp))
 
 (provide 'cursed-scala-mode)
 ;;; cursed-scala-mode.el ends here

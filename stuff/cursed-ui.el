@@ -33,6 +33,9 @@
 ;; Don't show startup message
 (setq inhibit-startup-message t)
 
+;;
+;; (setq warning-minimum-level :emergency)
+
 ;; Don't display a splash screen on startup
 (setq inhibit-splash-screen t)
 
@@ -98,6 +101,11 @@
 
 ;; Font
 ;; (set-face-attribute 'default nil :height 120)
+
+;; Load Nord theme
+;; (use-package nord-theme
+;;   :config
+;;   (load-theme 'nord t))
 
 ;; Load challenger deep theme
 (use-package challenger-deep-theme
