@@ -33,9 +33,6 @@
 ;; Don't show startup message
 (setq inhibit-startup-message t)
 
-;;
-;; (setq warning-minimum-level :emergency)
-
 ;; Don't display a splash screen on startup
 (setq inhibit-splash-screen t)
 
@@ -48,8 +45,6 @@
 ;; Internal border
 (set-frame-parameter nil 'internal-border-width 3)
 
-;; (show-paren-mode)
-
 ;; Turn off toolbar
 (tool-bar-mode -1)
 
@@ -59,8 +54,20 @@
 ;; Turn off scrollbar
 (scroll-bar-mode -1)
 
+;; Turn of blink of the cursor
+(blink-cursor-mode -1)
+
+;; Show column number
+(column-number-mode 1)
+
+;; yes/no questions become y/n questions
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Turn off ring bell
 (setq ring-bell-function 'ignore)
+
+;; Don't accelerate scrolling
+(setq mouse-wheel-progressive-speed nil)
 
 ;; Transparent titlebar:
 ;;   https://github.com/MaxSt/dotfiles/blob/master/emacs.d/config.org#disable-menubar
@@ -72,20 +79,13 @@
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 (setq frame-title-format "%b")
+
 ;; https://github.com/syl20bnr/spacemacs/issues/5633
 (setq frame-resize-pixelwise t)
 
 ;; Fringe
 (define-fringe-bitmap 'tilde [64 168 16] nil nil 'center)
 (set-fringe-bitmap-face 'tilde 'fringe)
-
-;;(use-package dired-sidebar
-;;  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
-;;  :commands (dired-sidebar-toggle-sidebar)
-;;  :config
-;;  (setq dired-use-ls-dired nil)
-;;  (setq dired-sidebar-use-all-the-icons nil)
-;;  (setq dired-sidebar-use-term-integration t))
 
 ;; Icons
 (use-package all-the-icons)
@@ -102,15 +102,15 @@
 ;; Font
 ;; (set-face-attribute 'default nil :height 120)
 
-;; Load Nord theme
-;; (use-package nord-theme
-;;   :config
-;;   (load-theme 'nord t))
-
 ;; Load challenger deep theme
 (use-package challenger-deep-theme
   :ensure t
   :init (load-theme 'challenger-deep t))
+
+;; Load Nord theme
+;; (use-package nord-theme
+;;   :config
+;;   (load-theme 'nord t))
 
 ;; Load sanityinc tomorrow theme
 ;; (use-package color-theme-sanityinc-tomorrow
