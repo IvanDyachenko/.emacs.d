@@ -36,14 +36,16 @@
 ;; Don't display a splash screen on startup
 (setq inhibit-splash-screen t)
 
-;;
 (setq inhibit-startup-echo-area-message t)
 
 ;; Don't insert instructions in the *scratch* buffer
 (setq initial-scratch-message "")
 
-;; Internal border
-(set-frame-parameter nil 'internal-border-width 3)
+;; Overrides function-key-map for preferred input-method to translate input sequences to english,
+;; so we can use Emacs bindings while non-default system layout is active
+(use-package reverse-im
+  :config
+  (reverse-im-activate "russian-computer"))
 
 ;; Turn off toolbar
 (tool-bar-mode -1)
@@ -69,6 +71,87 @@
 ;; Don't accelerate scrolling
 (setq mouse-wheel-progressive-speed nil)
 
+;; Use space instead of tabs when indenting
+(setq-default indent-tabs-mode nil)
+
+(setq frame-title-format "%b")
+
+;; https://github.com/syl20bnr/spacemacs/issues/5633
+(setq frame-resize-pixelwise t)
+
+;; Icons
+(use-package all-the-icons)
+
+;; Use the Debug Adapter Protocol for running tests and debugging
+(use-package posframe
+  ;; Posframe is a pop-up tool that must be manually installed for dap-mode
+  )
+
+;; Turn off global line numbering
+(use-package linum-off)
+
+;; Show line numbers in the margin
+(use-package nlinum
+  :after linum-off
+  :config
+  (setq nlinum-format "%4d ")
+  (setq nlinum-highlight-current-line t)
+  (global-nlinum-mode))
+
+(use-package ace-window
+  :defer t
+  :bind ("M-o" . ace-window)
+  :config
+  (setq aw-dispatch-always t))
+
+(use-package ace-jump-mode
+  :defer t
+  :commands ace-jump-mode	      
+  :init				      
+  (bind-key "C-c SPC" 'ace-jump-mode))
+
+;;(use-package treemacs
+;;  :defer t
+;;  :config
+;;  (progn
+;;    (setq treemacs-width                         40
+;;          treemacs-resize-icons                  0
+;;          treemacs-position                      'right
+;;          treemacs-directory-name-transformer    #'identity
+;;          ;treemacs-follow-after-init             t
+;;          treemacs-no-png-images                 t
+;;          treemacs-show-cursor                   t
+;;          treemacs-space-between-root-nodes      t
+;;          treemacs-user-mode-line-format         nil)
+;;
+;;    ;; The default width and height of the icons is 22 pixels. If you are
+;;    ;; using a Hi-DPI display, uncomment this to double the icon size.
+;;    ;;(treemacs-resize-icons 44)
+;;
+;;    (treemacs-follow-mode t)
+;;    (treemacs-filewatch-mode t))
+;;  :bind
+;;  (:map global-map
+;;        ("M-0"       . treemacs-select-window)
+;;        ("C-x t 1"   . treemacs-delete-other-windows)
+;;        ("C-x t t"   . treemacs)
+;;        ("C-x t B"   . treemacs-bookmark)
+;;        ("C-x t C-t" . treemacs-find-file)
+;;        ("C-x t M-t" . treemacs-find-tag)))
+
+(use-package neotree
+  :after all-the-icons
+  :commands (neotree-toggle)
+  :bind (("C-x C-n" . neotree-toggle))
+  :config
+  (setq neo-window-position 'right)
+  (setq neo-window-width 40)
+  (setq neo-smart-open t)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
+;; Internal border
+(set-frame-parameter nil 'internal-border-width 3)
+
 ;; Transparent titlebar:
 ;;   https://github.com/MaxSt/dotfiles/blob/master/emacs.d/config.org#disable-menubar
 ;;   https://github.com/d12frosted/homebrew-emacs-plus/blob/master/Formula/emacs-plus.rb#L98
@@ -78,29 +161,13 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
-(setq frame-title-format "%b")
-
-;; https://github.com/syl20bnr/spacemacs/issues/5633
-(setq frame-resize-pixelwise t)
-
 ;; Fringe
 (define-fringe-bitmap 'tilde [64 168 16] nil nil 'center)
 (set-fringe-bitmap-face 'tilde 'fringe)
 
-;; Icons
-(use-package all-the-icons)
-
-;; Sidebar
-(use-package neotree
-  :after all-the-icons
-  :commands (neotree-toggle)
-  :bind (("C-x C-n" . neotree-toggle))
-  :config
-  (setq neo-window-width 35)
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
-
 ;; Font
 ;; (set-face-attribute 'default nil :height 120)
+;; (set-face-attribute 'default nil :family "Fira Mono" :height 140)
 
 ;; Load challenger deep theme
 (use-package challenger-deep-theme
@@ -128,13 +195,13 @@
 ;;   (load-theme 'gruvbox-dark-hard t))
 
 ;; Load base16 theme
-;; (use-package base16-theme
+;;(use-package base16-theme
 ;;   :config
 ;;   (load-theme 'base16-default-dark t))
 ;;   (load-theme 'base16-google-dark t))
 
 ;; Load dracula theme
-;; (use-package dracula-theme
+;;(use-package dracula-theme
 ;;   :config
 ;;   (load-theme 'dracula t))
 
@@ -156,21 +223,6 @@
 ;;   :config
 ;;   (load-theme 'gruvbox-dark-hard t))
 
-;; Use space instead of tabs when indenting
-(setq-default indent-tabs-mode nil)
-
-;; Turn off global line numbering
-(use-package linum-off)
-
-;; Show line numbers in the margin
-(use-package nlinum
-  :after linum-off
-  :config
-;;  (setq nlinum-relative-redisplay-delay 0)
-  (setq nlinum-format "%4d ")
-  (setq nlinum-highlight-current-line t)
-  (global-nlinum-mode))
-
 (use-package rainbow-delimiters
   :defer t
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -179,31 +231,13 @@
   :defer t
   :hook (prog-mode . rainbow-mode))
 
-(use-package ace-window
-  :defer t
-  :bind ("M-o" . ace-window)
-  :config
-  (setq aw-dispatch-always t))
-
-(use-package ace-jump-mode
-  :defer t
-  :commands ace-jump-mode	      
-  :init				      
-  (bind-key "C-c SPC" 'ace-jump-mode))
-
 ;; (edit) aggresive-indent
 ;;(use-package aggressive-indent
 ;;  :diminish aggressive-indent-mode
 ;;  :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-;; clean-aindent-mode
 (use-package clean-aindent-mode
   :hook (prog-mode))
-
-;; Overrides function-key-map for preferred input-method to translate input sequences to english, so we can use Emacs bindings while non-default system layout is active
-(use-package reverse-im
-  :config
-  (reverse-im-activate "russian-computer"))
 
 (provide 'cursed-ui)
 ;;; cursed-ui.el ends here

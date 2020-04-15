@@ -20,13 +20,14 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 (use-package helm
   :defer t
   :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files))
+	 ("C-x C-f" . helm-find-files)
+         ("C-x b" . helm-buffers-list))
   :config
   (helm-mode))
 
@@ -43,6 +44,8 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
+;; Syntax checking for GNU Emacs.
+;; Enable nice rendering of diagnostics like compile errors.
 (use-package flycheck
   :ensure t
   :init (global-flycheck-mode))
@@ -55,15 +58,16 @@
   (require 'vlf-setup)) 
 
 (require 'cursed-ui)
+(require 'cursed-lsp)
 (require 'cursed-vcs)
 (require 'cursed-emacs-lisp-mode)
+(require 'cursed-scala-mode)
 (require 'cursed-json-mode)
 (require 'cursed-markdown-mode)
-(require 'cursed-scala-mode)
-(require 'cursed-python-mode)
+;;(require 'cursed-python-mode)
 (require 'cursed-c-mode)
 (require 'cursed-cmake-mode)
-(require 'cursed-rust-mode)
+;;(require 'cursed-rust-mode)
 (require 'cursed-javascript-mode)
 (require 'cursed-yaml)
 (require 'cursed-docker)
