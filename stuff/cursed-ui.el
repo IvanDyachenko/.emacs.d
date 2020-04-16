@@ -158,21 +158,16 @@
 ;;   https://github.com/d12frosted/homebrew-emacs-plus/issues/55
 ;;   https://www.gnu.org/software/emacs/manual/html_node/elisp/Properties-in-Mode.html#Properties-in-Mode
 (when (memq window-system '(mac ns))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (add-to-list 'default-frame-alist '(ns-appearance . light))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 ;; Fringe
-(define-fringe-bitmap 'tilde [64 168 16] nil nil 'center)
-(set-fringe-bitmap-face 'tilde 'fringe)
-
-;; Font
-;; (set-face-attribute 'default nil :height 120)
-;; (set-face-attribute 'default nil :family "Fira Mono" :height 140)
+(fringe-mode 0)
 
 ;; Load challenger deep theme
-(use-package challenger-deep-theme
-  :ensure t
-  :init (load-theme 'challenger-deep t))
+;;(use-package challenger-deep-theme
+;;  :ensure t
+;;  :init (load-theme 'challenger-deep t))
 
 ;; Load Nord theme
 ;; (use-package nord-theme
@@ -185,14 +180,14 @@
 ;;   (color-theme-sanityinc-tomorrow-night))
 
 ;; Load darktooth theme
-;; (use-package darktooth-theme
-;;   :config
-;;   (load-theme 'darktooth t))
+;;(use-package darktooth-theme
+;;  :config
+;;  (load-theme 'darktooth t))
 
 ;; Load gruvbox theme
-;; (use-package gruvbox-theme
-;;   :config
-;;   (load-theme 'gruvbox-dark-hard t))
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox-light-soft t))
 
 ;; Load base16 theme
 ;;(use-package base16-theme
@@ -217,11 +212,6 @@
 ;; (use-package nimbus-theme
 ;;   :config
 ;;   (load-theme 'nimbus t))
-
-;; Load Gruvbox Dark Hard theme
-;; (use-package gruvbox-theme
-;;   :config
-;;   (load-theme 'gruvbox-dark-hard t))
 
 (use-package rainbow-delimiters
   :defer t
