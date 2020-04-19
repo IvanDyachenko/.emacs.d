@@ -31,6 +31,11 @@
   :config
   (helm-mode))
 
+(use-package yasnippet
+  :config
+  ;; Adding yasnippet support to company
+  (yas-global-mode 1))
+
 (use-package company
   :hook (prog-mode . company-mode)
   :config

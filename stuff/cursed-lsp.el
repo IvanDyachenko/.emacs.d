@@ -27,11 +27,6 @@
 ;; Enable nice rendering of documentation on hover.
 (use-package lsp-ui)
 
-;; lsp-mode supports snippets, but in order for them to work you need to use yasnippet.
-;; If you don't want to use snippets set lsp-enable-snippet to nil in your lsp-mode settings
-;; to avoid odd behavior with snippets and indentation.
-(use-package yasnippet)
-
 ;; Company completion backend for lsp-mode.
 (use-package company-lsp
   :after (:all yasnippet))
@@ -51,10 +46,10 @@
 
 ;; Use the Tree View Protocol for viewing the project structure and triggering compilation
  (use-package lsp-treemacs
-   :bind (:map prog-mode-map
-               ("C-x t t" . lsp-metals-treeview)
-               ("C-x t s" . lsp-treemacs-symbols)
-               ("C-x t e" . lsp-treemacs-errors-list))
+;;   :bind (:map prog-mode-map
+;;               ("C-x t t" . lsp-metals-treeview)
+;;               ("C-x t s" . lsp-treemacs-symbols)
+;;               ("C-x t e" . lsp-treemacs-errors-list))
    ;; When true will automatically display the treeview when Metals has initialised the project
    ;; and sent the initial top level treeview information.
    :config

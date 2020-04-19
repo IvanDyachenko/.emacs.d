@@ -189,9 +189,14 @@
   :config
   (load-theme 'gruvbox-light-soft t))
 
+;; Load Sunburn theme
+;;(use-package sunburn-theme
+;;  :config
+;;  (load-theme 'sunburn t))
+
 ;; Load base16 theme
 ;;(use-package base16-theme
-;;   :config
+;;  :config
 ;;   (load-theme 'base16-default-dark t))
 ;;   (load-theme 'base16-google-dark t))
 
