@@ -164,59 +164,62 @@
 ;; Fringe
 (fringe-mode 0)
 
-;; Load challenger deep theme
+(use-package almost-mono-themes
+  :config
+  ;; (load-theme 'almost-mono-black t)
+  (load-theme 'almost-mono-white t))
+
+;;(use-package minimal-theme
+;;  :config
+;;  (load-theme 'minimal-light t))
+
 ;;(use-package challenger-deep-theme
 ;;  :ensure t
 ;;  :init (load-theme 'challenger-deep t))
 
-;; Load Nord theme
-;; (use-package nord-theme
-;;   :config
-;;   (load-theme 'nord t))
+;;(use-package nord-theme
+;;  :config
+;;  (load-theme 'nord t))
 
-;; Load sanityinc tomorrow theme
-;; (use-package color-theme-sanityinc-tomorrow
-;;   :config
-;;   (color-theme-sanityinc-tomorrow-night))
+;;(use-package color-theme-sanityinc-tomorrow
+;;  :config
+;;  (color-theme-sanityinc-tomorrow-night))
 
-;; Load darktooth theme
 ;;(use-package darktooth-theme
 ;;  :config
 ;;  (load-theme 'darktooth t))
 
-;; Load gruvbox theme
-(use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-light-soft t))
+;;(use-package gruvbox-theme
+;;  :config
+;;  (load-theme 'gruvbox-light-soft t))
 
-;; Load Sunburn theme
+;;(use-package kaolin-themes
+;;  :config
+;;  (load-theme 'kaolin-eclipse t)
+;;  (kaolin-treemacs-theme))
+
 ;;(use-package sunburn-theme
 ;;  :config
 ;;  (load-theme 'sunburn t))
 
-;; Load base16 theme
 ;;(use-package base16-theme
 ;;  :config
-;;   (load-theme 'base16-default-dark t))
-;;   (load-theme 'base16-google-dark t))
+;;  (load-theme 'base16-default-dark t))
+;;  (load-theme 'base16-google-dark t))
 
-;; Load dracula theme
 ;;(use-package dracula-theme
-;;   :config
-;;   (load-theme 'dracula t))
+;;  :config
+;;  (load-theme 'dracula t))
 
-;; Load grayscale theme
-;; (use-package grayscale-theme)
+;;(use-package grayscale-theme)
 
-;; Load afternoon theme
-;; (use-package afternoon-theme
-;;   :config
-;;   (load-theme 'afternoon t))
+;;(use-package afternoon-theme
+;;  :config
+;;  (load-theme 'afternoon t))
 
-;; Load nimbus theme
-;; (use-package nimbus-theme
-;;   :config
-;;   (load-theme 'nimbus t))
+;;(use-package nimbus-theme
+;;  :config
+;;  (load-theme 'nimbus t))
 
 (use-package rainbow-delimiters
   :defer t
