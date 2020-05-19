@@ -164,10 +164,10 @@
 ;; Fringe
 (fringe-mode 0)
 
-(use-package almost-mono-themes
-  :config
-  ;; (load-theme 'almost-mono-black t)
-  (load-theme 'almost-mono-white t))
+;;(use-package almost-mono-themes
+;;  :config
+;;  ;; (load-theme 'almost-mono-black t)
+;;  (load-theme 'almost-mono-white t))
 
 ;;(use-package minimal-theme
 ;;  :config
