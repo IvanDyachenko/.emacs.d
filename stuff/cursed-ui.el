@@ -149,6 +149,9 @@
   (setq neo-smart-open t)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
 
+(use-package powerline
+  :init (powerline-center-theme))
+
 ;; Internal border
 (set-frame-parameter nil 'internal-border-width 3)
 
