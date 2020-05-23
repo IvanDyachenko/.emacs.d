@@ -167,12 +167,7 @@
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 (use-package rainbow-delimiters
-  :defer t
   :hook (prog-mode . rainbow-delimiters-mode))
-
-;;(use-package aggressive-indent
-;;  :diminish aggressive-indent-mode
-;;  :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 (use-package clean-aindent-mode
   :hook (prog-mode))

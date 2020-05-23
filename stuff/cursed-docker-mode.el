@@ -1,9 +1,9 @@
-;;; cursed-yaml.el --- cursed yaml mode              -*- lexical-binding: t; -*-
+;;; cursed-docker-mode.el --- cursed Docker               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Ivan Dyachenko
 
-;; Author: Ivan Dyachenko <ivandyach@ivandyach-osx2.local>
-;; Keywords: 
+;; Author: Ivan Dyachenko <vandyachen@gmail.com>
+;; Keywords: abbrev
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,9 +24,15 @@
 
 ;;; Code:
 
-(use-package yaml-mode
-  :mode (("\\.yml$" . yaml-mode))
-  :commands (yaml-mode))
+(use-package docker
+  :defer t
+  :bind ("C-c d" . docker))
 
-(provide 'cursed-yaml)
-;;; cursed-yaml.el ends here
+(use-package dockerfile-mode
+  :mode ("^Dockerfile$" . dockerfile-mode))
+
+(use-package docker-compose-mode
+  :mode ("^docker-compose.y" . docker-compose-mode))
+
+(provide 'cursed-docker-mode)
+;;; cursed-docker.el ends here

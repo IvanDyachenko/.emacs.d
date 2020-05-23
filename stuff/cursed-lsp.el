@@ -24,10 +24,10 @@
 
 ;;; Code:
 
-;; Enable nice rendering of documentation on hover.
+;; Enable nice rendering of documentation on hover
 (use-package lsp-ui)
 
-;; Company completion backend for lsp-mode.
+;; Company completion backend for lsp-mode
 (use-package company-lsp
   :after (:all yasnippet))
 
@@ -35,7 +35,7 @@
   :after (:all lsp-ui company-lsp)
   :hook (lsp-mode . lsp-lens-mode)
   :config
-  ;; If you prefer flycheck and lsp-ui-flycheck is available.
+  ;; If you prefer flycheck and lsp-ui-flycheck is available
   (setq lsp-prefer-flymake nil))
 
 ;; Emacs client/library for Debug Adapter Protocol is a wire protocol for communication between client and Debug Server.

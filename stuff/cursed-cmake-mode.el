@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2018  Ivan Dyachenko
 
-;; Author: Ivan Dyachenko <ivandyach@ivandyach-osx2.local>
+;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -24,7 +24,6 @@
 
 ;;; Code:
 
-;; cmake-mode
 (use-package cmake-mode
   :defer t
   :hook (cmake-mode . (lambda()
@@ -35,7 +34,6 @@
                                                          company-capf
                                                          company-files))))))
 
-;; cmake-font-lock
 (use-package cmake-font-lock
   :commands (cmake-font-lock-activate)
   :hook (cmake-mode . (lambda() (progn
