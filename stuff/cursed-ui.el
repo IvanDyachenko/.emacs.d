@@ -27,19 +27,23 @@
 
 (global-auto-revert-mode 1)
 
+;; No sound
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
+
 ;; Don't show startup screen
 (setq inhibit-startup-screen t)
-
-;; Don't show startup message
-(setq inhibit-startup-message t)
 
 ;; Don't display a splash screen on startup
 (setq inhibit-splash-screen t)
 
-(setq inhibit-startup-echo-area-message t)
+;; Don't show startup message
+(setq inhibit-startup-message t)
 
 ;; Don't insert instructions in the *scratch* buffer
-(setq initial-scratch-message "")
+(setq initial-scratch-message nil)
+
+(setq inhibit-startup-echo-area-message t)
 
 ;; Overrides function-key-map for preferred input-method to translate input sequences to english,
 ;; so we can use Emacs bindings while non-default system layout is active
@@ -56,17 +60,17 @@
 ;; Turn off scrollbar
 (scroll-bar-mode -1)
 
-;; Turn of blink of the cursor
+;; No blink
 (blink-cursor-mode -1)
 
 ;; Show column number
 (column-number-mode 1)
 
+;; No ugly button for checkboxes
+(setq widget-image-enable nil)
+
 ;; yes/no questions become y/n questions
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Turn off ring bell
-(setq ring-bell-function 'ignore)
 
 ;; Don't accelerate scrolling
 (setq mouse-wheel-progressive-speed nil)
@@ -79,7 +83,8 @@
 ;; https://github.com/syl20bnr/spacemacs/issues/5633
 (setq frame-resize-pixelwise t)
 
-(fringe-mode 0)
+;; No fringe but nice glyphs for truncated and wrapped lines
+(fringe-mode '(0 . 0))
 
 ;; Icons
 (use-package all-the-icons)
