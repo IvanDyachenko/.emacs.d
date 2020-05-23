@@ -33,16 +33,17 @@
 (setq load-prefer-newer t)
 
 (defvar cursed-dir (expand-file-name user-emacs-directory)
-  "The path to the root directory of the Emacs cursed configuration")
+  "The path to the `root` directory of the Emacs cursed configuration")
 
 (defvar cursed-core-dir (expand-file-name "core" cursed-dir)
-  "The path to the core directory of the Emacs cursed configuration")
+  "The path to the `core` directory of the Emacs cursed configuration")
 
 (defvar cursed-stuff-dir (expand-file-name "stuff" cursed-dir)
-  "The path to the stuff directory of the Emacs cursed configuration")
+  "The path to the `stuff` directory of the Emacs cursed configuration")
 
 (setq custom-file (expand-file-name "custom.el" cursed-dir))
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;; Add cursed directories to Emacs 'load-path
 (add-to-list 'load-path cursed-core-dir)
