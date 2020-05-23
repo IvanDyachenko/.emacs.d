@@ -42,11 +42,10 @@
   (global-company-mode))
 
 (use-package projectile
-  :ensure t
   :pin melpa-stable
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
   :config
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode +1))
 
 ;; Syntax checking for GNU Emacs.
