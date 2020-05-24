@@ -26,7 +26,7 @@
 
 (use-package org
   :pin org
-  :mode "\\.org\\'"
+  :mode ("\\.org\\'" . org-mode)
   :bind (("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c l" . org-store-link)))
