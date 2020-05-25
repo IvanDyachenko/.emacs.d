@@ -177,5 +177,14 @@
 (use-package clean-aindent-mode
   :hook (prog-mode))
 
+(use-package which-key
+  :diminish which-key-mode
+  :init
+  (which-key-mode)
+  :config
+  ;; Show on right if there's enough space, on bottom otherwise
+  (which-key-setup-minibuffer)
+  (setq which-key-idle-delay 0.5))
+
 (provide 'cursed-ui)
 ;;; cursed-ui.el ends here
