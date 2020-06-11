@@ -27,10 +27,6 @@
 
 (global-auto-revert-mode 1)
 
-;; No sound
-(setq visible-bell t)
-(setq ring-bell-function 'ignore)
-
 ;; Don't show startup screen
 (setq inhibit-startup-screen t)
 
@@ -45,11 +41,9 @@
 
 (setq inhibit-startup-echo-area-message t)
 
-;; Overrides function-key-map for preferred input-method to translate input sequences to english,
-;; so we can use Emacs bindings while non-default system layout is active
-(use-package reverse-im
-  :config
-  (reverse-im-activate "russian-computer"))
+;; Turn off sound
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 ;; Turn off toolbar
 (tool-bar-mode -1)
@@ -60,13 +54,10 @@
 ;; Turn off scrollbar
 (scroll-bar-mode -1)
 
-;; No blink
+;; Disable blink
 (blink-cursor-mode -1)
 
-;; Show column number
-(column-number-mode 1)
-
-;; No ugly button for checkboxes
+;; Disable ugly button for checkboxes
 (setq widget-image-enable nil)
 
 ;; yes/no questions become y/n questions
@@ -78,13 +69,31 @@
 ;; Use space instead of tabs when indenting
 (setq-default indent-tabs-mode nil)
 
+;; Highlight current line
+;;(global-hl-line-mode 1)
+
+;; Show line number
+(global-display-line-numbers-mode t)
+
+;; Show column number
+(column-number-mode 1)
+
 (setq frame-title-format "%b")
+
+;; Transparent titlebar:
+;;   https://github.com/MaxSt/dotfiles/blob/master/emacs.d/config.org#disable-menubar
+;;   https://github.com/d12frosted/homebrew-emacs-plus/blob/master/Formula/emacs-plus.rb#L98
+;;   https://github.com/d12frosted/homebrew-emacs-plus/issues/55
+;;   https://www.gnu.org/software/emacs/manual/html_node/elisp/Properties-in-Mode.html#Properties-in-Mode
+(when (memq window-system '(mac ns))
+  (add-to-list 'default-frame-alist '(ns-appearance . light))
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
+
+;; Internal border
+;;(set-frame-parameter nil 'internal-border-width 3)
 
 ;; https://github.com/syl20bnr/spacemacs/issues/5633
 (setq frame-resize-pixelwise t)
-
-;; No fringe but nice glyphs for truncated and wrapped lines
-(fringe-mode '(0 . 0))
 
 ;; Icons
 (use-package all-the-icons)
@@ -94,16 +103,11 @@
   ;; Posframe is a pop-up tool that must be manually installed for dap-mode
   )
 
-;; Turn off global line numbering
-(use-package linum-off)
-
-;; Show line numbers in the margin
-(use-package nlinum
-  :after linum-off
+;; Overrides function-key-map for preferred input-method to translate input sequences to english,
+;; so we can use Emacs bindings while non-default system layout is active
+(use-package reverse-im
   :config
-  (setq nlinum-format "%4d ")
-  (setq nlinum-highlight-current-line t)
-  (global-nlinum-mode))
+  (reverse-im-activate "russian-computer"))
 
 (use-package ace-window
   :defer t
@@ -125,7 +129,7 @@
 ;;          treemacs-resize-icons                  0
 ;;          treemacs-position                      'right
 ;;          treemacs-directory-name-transformer    #'identity
-;;          ;treemacs-follow-after-init             t
+;;          treemacs-follow-after-init             t
 ;;          treemacs-no-png-images                 t
 ;;          treemacs-show-cursor                   t
 ;;          treemacs-space-between-root-nodes      t
@@ -159,23 +163,11 @@
 (use-package powerline
   :init (powerline-center-theme))
 
-;; Internal border
-(set-frame-parameter nil 'internal-border-width 3)
-
-;; Transparent titlebar:
-;;   https://github.com/MaxSt/dotfiles/blob/master/emacs.d/config.org#disable-menubar
-;;   https://github.com/d12frosted/homebrew-emacs-plus/blob/master/Formula/emacs-plus.rb#L98
-;;   https://github.com/d12frosted/homebrew-emacs-plus/issues/55
-;;   https://www.gnu.org/software/emacs/manual/html_node/elisp/Properties-in-Mode.html#Properties-in-Mode
-(when (memq window-system '(mac ns))
-  (add-to-list 'default-frame-alist '(ns-appearance . light))
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
-
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package clean-aindent-mode
-  :hook (prog-mode))
+  :hook prog-mode)
 
 (use-package which-key
   :diminish which-key-mode
