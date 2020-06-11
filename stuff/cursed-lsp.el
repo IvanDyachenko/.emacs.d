@@ -33,7 +33,8 @@
 
 (use-package lsp-mode
   :after (:all lsp-ui company-lsp)
-  :hook (lsp-mode . lsp-lens-mode)
+  :hook (scala-mode . lsp) ;; Enable lsp-mode automatically in scala files
+        (lsp-mode . lsp-lens-mode)
   :config
   ;; If you prefer flycheck and lsp-ui-flycheck is available
   (setq lsp-prefer-flymake nil))
@@ -53,8 +54,8 @@
    ;; When true will automatically display the treeview when Metals has initialised the project
    ;; and sent the initial top level treeview information.
    :config
-   (lsp-metals-treeview-enable t)
-   (setq lsp-metals-treeview-show-when-views-received t))
+   (lsp-metals-treeview-enable t))
+;;   (setq lsp-metals-treeview-show-when-views-received t))
 
 (provide 'cursed-lsp)
 ;;; cursed-lsp.el ends here

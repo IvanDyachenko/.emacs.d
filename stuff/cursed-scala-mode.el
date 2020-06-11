@@ -24,12 +24,13 @@
 
 ;;; Code:
 
+;; Add metals backend for lsp-mode
+(use-package lsp-metals)
+
 ;; Enable scala-mode and sbt-mode
 (use-package scala-mode
   :after lsp-mode
-  :mode "\\.s\\(cala\\|bt\\)$"
-  ;; Enable lsp-mode automatically in scala files
-  :hook (scala-mode . lsp))
+  :mode "\\.s\\(cala\\|bt\\)$")
 
 (use-package sbt-mode
   :after lsp-mode
