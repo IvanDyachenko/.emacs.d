@@ -24,10 +24,17 @@
 
 ;;; Code:
 
-;;
 (use-package magit
-  :ensure t
   :bind (("C-x g" . magit-status)))
+
+(use-package forge
+  :after magit)
+
+(use-package diff-hl
+  :hook ((org-mode . diff-hl-mode)
+         (prog-mode . diff-hl-mode)
+         (vc-dir-mode . diff-hl-mode)
+         (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 (provide 'cursed-vcs)
 ;;; cursed-vcs.el ends here
