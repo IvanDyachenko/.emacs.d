@@ -25,7 +25,8 @@
 ;;; Code:
 
 ;; Add metals backend for lsp-mode
-(use-package lsp-metals)
+(use-package lsp-metals
+  :after lsp-mode)
 
 ;; Enable scala-mode and sbt-mode
 (use-package scala-mode

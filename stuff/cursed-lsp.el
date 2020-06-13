@@ -33,8 +33,9 @@
 
 (use-package lsp-mode
   :after (:all lsp-ui company-lsp)
-  :hook (scala-mode . lsp) ;; Enable lsp-mode automatically in scala files
-        (lsp-mode . lsp-lens-mode)
+  :hook (lsp-mode . lsp-lens-mode)
+        (scala-mode . lsp) ;; Enable lsp-mode automatically in scala files
+        
   :config
   ;; If you prefer flycheck and lsp-ui-flycheck is available
   (setq lsp-prefer-flymake nil))
@@ -42,19 +43,20 @@
 ;; Emacs client/library for Debug Adapter Protocol is a wire protocol for communication between client and Debug Server.
 ;; It’s similar to the LSP but provides integration with debug server.
 (use-package dap-mode
-  :hook ((lsp-mode . dap-mode)
-         (lsp-mode . dap-ui-mode)))
+  :hook (lsp-mode . dap-mode)
+        (lsp-mode . dap-ui-mode))
 
 ;; Use the Tree View Protocol for viewing the project structure and triggering compilation
- (use-package lsp-treemacs
+(use-package lsp-treemacs)
 ;;   :bind (:map prog-mode-map
 ;;               ("C-x t t" . lsp-metals-treeview)
 ;;               ("C-x t s" . lsp-treemacs-symbols)
 ;;               ("C-x t e" . lsp-treemacs-errors-list))
-   ;; When true will automatically display the treeview when Metals has initialised the project
-   ;; and sent the initial top level treeview information.
-   :config
-   (lsp-metals-treeview-enable t))
+;;
+;;   :config
+;;   (lsp-metals-treeview-enable t))
+;; When true will automatically display the treeview when Metals has initialised the project
+;; and sent the initial top level treeview information.
 ;;   (setq lsp-metals-treeview-show-when-views-received t))
 
 (provide 'cursed-lsp)
