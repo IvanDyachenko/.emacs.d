@@ -25,7 +25,13 @@
 ;;; Code:
 
 ;; Enable nice rendering of documentation on hover
-(use-package lsp-ui)
+(use-package lsp-ui
+  :config
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (setq lsp-ui-peek-enable t)
+  ;; Show the directory of files
+  (setq lsp-ui-peek-show-directory t))
 
 ;; Company completion backend for lsp-mode
 (use-package company-lsp
@@ -35,7 +41,6 @@
   :after (:all lsp-ui company-lsp)
   :hook (lsp-mode . lsp-lens-mode)
         (scala-mode . lsp) ;; Enable lsp-mode automatically in scala files
-        
   :config
   ;; If you prefer flycheck and lsp-ui-flycheck is available
   (setq lsp-prefer-flymake nil))
