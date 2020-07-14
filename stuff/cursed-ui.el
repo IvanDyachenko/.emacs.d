@@ -166,6 +166,9 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))
+
 (use-package clean-aindent-mode
   :hook prog-mode)
 
