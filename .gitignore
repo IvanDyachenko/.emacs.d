@@ -18,6 +18,15 @@ tramp
 # flymake-mode
 *_flymake.*
 
+# recentf-mode
+recentf
+
+# straight
+/straight/
+
+# var files
+/var/
+
 # eshell files
 /eshell/history
 /eshell/lastdir
@@ -51,6 +60,9 @@ projectile-bookmarks.eld
 # saveplace
 places
 
+# network security
+/network-security.data
+
 # url cache
 url/cache/
 
@@ -68,6 +80,16 @@ anaconda-mode/
 
 ### Git ###
 *.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
 
 ### macOS ###
 *.DS_Store
