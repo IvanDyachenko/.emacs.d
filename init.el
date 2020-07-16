@@ -1,9 +1,9 @@
-;;; init.el --- Emacs cursed configuration           -*- lexical-binding: t; -*-
+;;; init.el --- cursed configuration           -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017  Ivan Dyachenko
+;; Copyright (C) 2020  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -30,30 +30,32 @@
 ;; You may delete these explanatory comments.
 ;(package-initialize)
 
-(setq load-prefer-newer t)
+(defvar cursed--root-directory
+  (expand-file-name user-emacs-directory)
+  "The path to the `root` directory of the Emacs cursed configuration.")
 
-(defvar cursed-dir (expand-file-name user-emacs-directory)
-  "The path to the `root` directory of the Emacs cursed configuration")
+(defvar cursed--core-directory
+  (expand-file-name "core" cursed--root-directory)
+  "The path to the `core` directory of the Emacs cursed configuration.")
 
-(defvar cursed-core-dir (expand-file-name "core" cursed-dir)
-  "The path to the `core` directory of the Emacs cursed configuration")
+(defvar cursed--curse-directory
+  (expand-file-name "curse" cursed--root-directory)
+   "The path to the `curse` directory of the Emacs cursed configuration.")
+  
+;; Setting up a customization file.
+(setq custom-file
+      (expand-file-name "custom.el" cursed--root-directory))
 
-(defvar cursed-stuff-dir (expand-file-name "stuff" cursed-dir)
-  "The path to the `stuff` directory of the Emacs cursed configuration")
-
-(setq custom-file (expand-file-name "custom.el" cursed-dir))
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Add cursed directories to Emacs 'load-path
-(add-to-list 'load-path cursed-core-dir)
-(add-to-list 'load-path cursed-stuff-dir)
+;; Add cursed directories to list of directories to search.
+;; https://www.emacswiki.org/emacs/LoadPath
+(add-to-list 'load-path cursed--core-directory)
+(add-to-list 'load-path cursed--curse-directory)
 
-;; The core loading
 (require 'cursed-core)
-
-;; The cursed stuff loading
-(require 'cursed-stuff)
+(require 'cursed-curse)
 
 (provide 'init)
 ;;; init.el ends here

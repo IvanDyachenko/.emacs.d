@@ -1,4 +1,4 @@
-;;; cursed-core.el --- cursed core                   -*- lexical-binding: t; -*-
+;;; cursed-company.el --- cursed Company             -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 
@@ -16,26 +16,25 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-;; 
+;; Modular in-buffer completion framework for Emacs
 
 ;;; Code:
 
-(require 'cursed-file)
-(require 'cursed-package)
-
 (require 'straight)
 
-(straight-use-package 'esup)
-(straight-use-package 'exec-path-from-shell)
+(straight-use-package 'company)
 
-;;(autoload 'esup "esup" "Emacs Start Up Profiler." nil)
+(require 'company)
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-selection-wrap-around t)
 
-(provide 'cursed-core)
-;;; cursed-core.el ends here
+(global-company-mode)
+
+(provide 'cursed-company)
+;;; cursed-company.el ends here

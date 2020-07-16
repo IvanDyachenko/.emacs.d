@@ -1,9 +1,9 @@
-;;; cursed-rust-mode.el --- cursed rust mode              -*- lexical-binding: t; -*-
+;;; cursed-yasnippet.el --- cursed YASnippet         -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018  Ivan Dyachenko
+;; Copyright (C) 2020  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -16,15 +16,22 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-;; 
+;; A template system for Emacs
 
 ;;; Code:
-(use-package rust-mode
-  :mode ("\\.rs\\'" . rust-mode))
 
-(provide 'cursed-rust-mode)
-;;; cursed-rust-mode.el ends here
+(require 'straight)
+
+(straight-use-package 'yasnippet)
+
+(require 'yasnippet)
+
+;; Adding yasnippet support to company.
+(yas-global-mode)
+
+(provide 'cursed-yasnippet)
+;;; cursed-yasnippet.el ends here

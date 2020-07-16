@@ -1,4 +1,4 @@
-;;; cursed-core.el --- cursed core                   -*- lexical-binding: t; -*-
+;;; cursed-elisp.el --- cursed emacs lisp mode  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 
@@ -24,18 +24,19 @@
 
 ;;; Code:
 
-(require 'cursed-file)
-(require 'cursed-package)
-
 (require 'straight)
 
-(straight-use-package 'esup)
-(straight-use-package 'exec-path-from-shell)
+(straight-use-package 'highlight-quoted)
+(straight-use-package 'highlight-defined)
+(straight-use-package 'highlight-parentheses)
 
-;;(autoload 'esup "esup" "Emacs Start Up Profiler." nil)
+(require 'highlight-quoted)      ;; Highlight Lisp quotes and quoted symbols.
+(require 'highlight-defined)     ;; Highlight known Emacs Lisp symbols.
+(require 'highlight-parentheses)
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+(add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
+(add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
+(add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
 
-(provide 'cursed-core)
-;;; cursed-core.el ends here
+(provide 'cursed-elisp)
+;;; cursed-elisp.el ends here

@@ -1,9 +1,9 @@
-;;; cursed-javascript-mode.el --- cursed javascript mode  -*- lexical-binding: t; -*-
+;;; cursed-wakatime.el --- cursed Wakatime           -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018  Ivan Dyachenko
+;; Copyright (C) 2020  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -24,9 +24,11 @@
 
 ;;; Code:
 
-(use-package js2-mode
-  :mode (("\\.js\\'" . js2-mode)
-         ("\\.json\\'" . js2-mode)))
+(require 'straight)
 
-(provide 'cursed-javascript-mode)
-;;; cursed-javascript-mode.el ends here
+(straight-use-package 'wakatime-mode)
+
+(global-wakatime-mode)
+
+(provide 'cursed-wakatime)
+;;; cursed-wakatime.el ends here

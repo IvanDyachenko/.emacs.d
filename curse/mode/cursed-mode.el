@@ -1,4 +1,4 @@
-;;; cursed-core.el --- cursed core                   -*- lexical-binding: t; -*-
+;;; cursed-mode.el --- cursed mode                   -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 
@@ -16,7 +16,7 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -24,18 +24,8 @@
 
 ;;; Code:
 
-(require 'cursed-file)
-(require 'cursed-package)
+(require 'cursed-elisp)
+(require 'cursed-scala)
 
-(require 'straight)
-
-(straight-use-package 'esup)
-(straight-use-package 'exec-path-from-shell)
-
-;;(autoload 'esup "esup" "Emacs Start Up Profiler." nil)
-
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-
-(provide 'cursed-core)
-;;; cursed-core.el ends here
+(provide 'cursed-mode)
+;;; cursed-mode.el ends here

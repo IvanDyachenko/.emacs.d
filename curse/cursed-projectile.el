@@ -1,9 +1,9 @@
-;;; cursed-emacs-lisp-mode.el --- cursed emacs lisp mode  -*- lexical-binding: t; -*-
+;;; cursed-projectile.el --- cursed Projectile       -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2017  Ivan Dyachenko
+;; Copyright (C) 2020  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
-;; Keywords: 
+;; Keywords:
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -24,14 +24,15 @@
 
 ;;; Code:
 
-(use-package highlight-defined
-  :hook (emacs-lisp-mode . highlight-defined-mode))
+(require 'straight)
 
-(use-package highlight-quoted
-  :hook (emacs-lisp-mode . highlight-quoted-mode))
+(straight-use-package 'projectile)
 
-(use-package highlight-parentheses
-  :hook (emacs-lisp-mode . highlight-parentheses-mode))
+(require 'projectile)
 
-(provide 'cursed-emacs-lisp-mode)
-;;; cursed-emacs-lisp-mode.el ends here
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+(projectile-mode +1)
+
+(provide 'cursed-projectile)
+;;; cursed-projectile.el ends here
