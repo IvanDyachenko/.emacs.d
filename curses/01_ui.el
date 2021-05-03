@@ -37,6 +37,7 @@
 (require 'rainbow-delimiters)
 (require 'clean-aindent-mode)
 (require 'indent-guide)
+(require 'ligature)
 
 ;; Transparent titlebar.
 (when (memq window-system '(mac ns))
@@ -77,5 +78,27 @@ Ref:
 (add-hook 'after-make-frame-functions 'new-frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
 
 (reverse-im-activate "russian-computer")
+
+;; Free monospaced font with programming ligatures.
+;; Ref:
+;;   - https://github.com/tonsky/FiraCode
+(set-frame-font "Fira Code 12" nil t)
+
+;; Display typographical ligatures in Emacs.
+(ligature-set-ligatures
+ 'prog-mode ;; Enables all ligatures for prog-mode and any major mode that derives from that mode.
+ '("!!", "!!!", "!!.", "!=", "!==", "\"\"\"", "#!", "##", "###", "####", "#(",
+   "#:", "#=", "#?", "#[", "#_", "#_(", "#{", "$>", "%%", "&&", "'''", "**",
+   "***", "*/", "*>", "*>", "++", "+++", "+>", "---", "--<", "-->", "-<", "->",
+   "->>", "-~", ".-", "..", "...", "..<", "..=", ".=", ".?", "/*", "//", "///",
+   "/=", "/==", "/>", "::", ":::", "::=", ":<", ":=", ":>", ";;", "<!--", "<$",
+   "<$>", "<*", "<*>", "<+", "<+>", "<-", "<--", "<-<", "<->", "</", "</>",
+   "<:", "<<", "<<-", "<<<", "<<=", "<=", "<=<", "<==", "<==>", "<=>", "<>",
+   "<|", "<|>", "<||", "<|||", "<~", "<~>", "<~~", "=!=", "=/", "=:=", "=<<",
+   "==", "===", "==>", "=>", "=>>", ">-", ">->", ">:", ">=", ">=>", ">>", ">>=",
+   ">>>", "?.", "?:", "?=", "??", "???", "[|", "]#", "^=", "{|", "|", "|]",
+   "||", "|||", "|}", "~-", "~=", "~>", "~@", "~~", "~~>"))
+;; Enables ligature checks globally in all buffers. You can also do it per mode with `ligature-mode'.
+(global-ligature-mode t)
 
 ;;; 01_ui.el ends here

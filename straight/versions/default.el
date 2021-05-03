@@ -35,6 +35,7 @@
  ("indent-guide" . "d388c3387781a370ca13233ff445d03f3c5cf12f")
  ("init-loader" . "10b8d7b12acbd1036e68dfb59f460714baedaa33")
  ("let-alist" . "6708ec0b2e6dff80ff5b64698aa009d9070a2ed2")
+ ("ligature.el" . "5d758491ee3a505267eba87cdbff47cc8c4ab005")
  ("lsp-metals" . "5aea52dfe08b8f5936ea3982be6c25339f652eba")
  ("lsp-mode" . "75e58d2de4ae2a5389995a6dc3646749ff324905")
  ("lsp-treemacs" . "192c8f5d6fbec08e3635b7fefc056b8f0f087ba7")

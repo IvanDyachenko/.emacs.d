@@ -97,5 +97,9 @@
 (straight-use-package 'rainbow-delimiters) ;; Emacs rainbow delimiters mode.
 (straight-use-package 'indent-guide)       ;; Show vertical lines to guide indentation.
 (straight-use-package 'clean-aindent-mode) ;; Emacs extension for simple indent and unindent.
+(straight-use-package                      ;; Display typographical ligatures in Emacs.
+ `(ligature :type git :host github
+            :repo "mickeynp/ligature.el"
+            :branch "master"))
 
 ;;; 01_packages.el ends here
