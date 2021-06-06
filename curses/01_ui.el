@@ -36,7 +36,6 @@
 (require 'all-the-icons)
 (require 'rainbow-delimiters)
 (require 'clean-aindent-mode)
-(require 'indent-guide)
 (require 'ligature)
 
 ;; Transparent titlebar.
@@ -55,8 +54,6 @@
 
 (which-key-mode)
 (which-key-setup-side-window-bottom)
-
-(indent-guide-global-mode t)
 
 (show-smartparens-global-mode t)
 

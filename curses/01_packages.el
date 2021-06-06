@@ -95,7 +95,6 @@
 (straight-use-package 'all-the-icons)      ;; Icons.
 (straight-use-package 'smartparens)        ;; Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
 (straight-use-package 'rainbow-delimiters) ;; Emacs rainbow delimiters mode.
-(straight-use-package 'indent-guide)       ;; Show vertical lines to guide indentation.
 (straight-use-package 'clean-aindent-mode) ;; Emacs extension for simple indent and unindent.
 (straight-use-package                      ;; Display typographical ligatures in Emacs.
  `(ligature :type git :host github
