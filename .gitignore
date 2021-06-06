@@ -81,6 +81,9 @@ company-statistics-cache.el
 # anaconda-mode
 anaconda-mode/
 
+# transient
+transient/
+
 # lsp-mode
 .lsp-session-v[0-9]*
 
