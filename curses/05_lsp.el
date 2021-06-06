@@ -31,9 +31,15 @@
 (define-key lsp-ui-mode-map [remap xref-find-references]  #'lsp-ui-peek-find-references)
 (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
 
-(setq lsp-ui-peek-enable         t) ;; Enable ‘lsp-ui-peek’.
-(setq lsp-ui-peek-show-directory t) ;; Show the directory of files.
+(setq lsp-ui-doc-enable         nil) ;; Disable `lsp-ui-doc'.
+(setq lsp-ui-doc-position 'at-point)
 
+(setq lsp-ui-sideline-enable            t) ;; Enable `lsp-ui-sideline'.
+(setq lsp-ui-sideline-show-hover        t) ;; Show hover messages in sideline.
+(setq lsp-ui-sideline-show-code-actions t) ;; Show code actions in sideline.
+
+(setq lsp-ui-peek-enable         t) ;; Enable `lsp-ui-peek'.
+(setq lsp-ui-peek-show-directory t) ;; Show the directory of files.
 ;; A window-local jump list dedicated to cross references:
 ;;(lsp-ui-peek-jump-forward)
 ;;(lsp-ui-peek-jump-backward)
@@ -52,6 +58,7 @@
 
 (add-hook 'lsp-mode-hook #'dap-mode)
 (add-hook 'lsp-mode-hook #'dap-ui-mode)
+(add-hook 'lsp-mode-hook #'lsp-ui-mode)
 (add-hook 'lsp-mode-hook #'lsp-lens-mode)
 
 ;;; 05_lsp.el ends here
