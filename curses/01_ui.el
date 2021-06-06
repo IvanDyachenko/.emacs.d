@@ -41,7 +41,7 @@
 
 ;; Transparent titlebar.
 (when (memq window-system '(mac ns))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  ;;(add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 (add-hook 'prog-mode-hook #'smartparens-mode)
