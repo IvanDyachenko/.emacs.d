@@ -41,8 +41,8 @@
 (scroll-bar-mode                  -1) ;; Turn off scrollbar.
 (blink-cursor-mode                -1) ;; Turn off blink.
 (column-number-mode                1) ;; Show column number.
-(global-display-line-numbers-mode  t) ;; Show line number.
 ;;(global-hl-line-mode             1) ;; Highlight current line.
+(global-display-line-numbers-mode  t) ;; Show line number.
 
 (setq frame-title-format             "%b") ;; ...
 (setq frame-resize-pixelwise            t) ;; Fully maximize frames.
@@ -50,11 +50,12 @@
 (setq ring-bell-function          'ignore) ;;
 (setq initial-scratch-message         nil) ;; Don't insert instructions in the *scratch* buffer
 (setq mouse-wheel-progressive-speed   nil) ;; Don't accelerate scrolling.
-;;(setq widget-image-enable           nil) ;; Disable ugly button for checkboxes.
+(setq widget-image-enable             nil) ;; Disable ugly button for checkboxes.
 
-;; https://stackoverflow.com/a/19757155/5592388
-(add-to-list 'default-frame-alist '(reverse . t))
-(setq initial-frame-alist default-frame-alist)
+;; Reverse video by default:
+;; - https://stackoverflow.com/a/19757155/5592388
+;;(add-to-list 'default-frame-alist '(reverse . t))
+;;(setq initial-frame-alist default-frame-alist)
 
 ;; Yes/no questions become y/n questions.
 (defalias 'yes-or-no-p 'y-or-n-p)
