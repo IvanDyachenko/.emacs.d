@@ -81,6 +81,18 @@ company-statistics-cache.el
 # anaconda-mode
 anaconda-mode/
 
+# lsp-mode
+.lsp-session-v[0-9]*
+
+# dap-mode
+.dap-breakpoints
+
+# cache folder
+.cache/
+
+# backups folder
+.backups/
+
 ### Git ###
 *.orig
 
