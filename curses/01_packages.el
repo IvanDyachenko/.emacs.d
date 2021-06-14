@@ -58,7 +58,7 @@
 (straight-use-package 'helm-lsp) ;; Helm lsp integration.
 
 ;; Company
-(straight-use-package 'company)     ;; Modular in-buffer completion framework for Emacs.
+(straight-use-package 'company) ;; Modular in-buffer completion framework for Emacs.
 
 ;; Version Control System
 (straight-use-package 'magit)

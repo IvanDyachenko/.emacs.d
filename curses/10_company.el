@@ -26,10 +26,19 @@
 
 (require 'company)
 
-(setq company-idle-delay            0)
-(setq company-minimum-prefix-length 2)
-(setq company-selection-wrap-around t)
+(setq company-echo-delay                0)
+(setq company-idle-delay              0.3)
+(setq company-tooltip-idle-delay      0.5)
+(setq company-tooltip-align-annotations t)
+(setq company-require-match        'never)
+(setq company-show-numbers              t)
+(setq company-minimum-prefix-length     1)
+(setq company-selection-wrap-around     t)
 
-(global-company-mode)
+(add-to-list 'display-buffer-alist
+             '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
+
+;; Use `company-mode' in all buffers.
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;; 10_company.el ends here
