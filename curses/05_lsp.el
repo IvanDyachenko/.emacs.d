@@ -34,18 +34,18 @@
 (setq lsp-ui-doc-enable         nil) ;; Disable `lsp-ui-doc'.
 (setq lsp-ui-doc-position 'at-point)
 
-(setq lsp-ui-sideline-enable            t) ;; Enable `lsp-ui-sideline'.
-(setq lsp-ui-sideline-show-hover        t) ;; Show hover messages in sideline.
-(setq lsp-ui-sideline-show-code-actions t) ;; Show code actions in sideline.
-
 (setq lsp-ui-peek-enable         t) ;; Enable `lsp-ui-peek'.
 (setq lsp-ui-peek-show-directory t) ;; Show the directory of files.
 ;; A window-local jump list dedicated to cross references:
 ;;(lsp-ui-peek-jump-forward)
 ;;(lsp-ui-peek-jump-backward)
 
-(setq lsp-completion-enable       t)
-(setq lsp-completion-provider :capf)
+(setq lsp-ui-sideline-enable            t) ;; Enable `lsp-ui-sideline'.
+(setq lsp-ui-sideline-show-hover        t) ;; Show hover messages in sideline.
+(setq lsp-ui-sideline-show-code-actions t) ;; Show code actions in sideline.
+
+(setq lsp-completion-enable       t) ;; Enable `completion-at-point' integration.
+(setq lsp-completion-provider :capf) ;; Use `company-capf' as the completion backend provider.
 
 ;; Specifies which package to use for diagnostics.
 (setq lsp-diagnostics-provider :flycheck)
@@ -57,7 +57,6 @@
 (setq lsp-log-io       nil) ;; If set to true can cause a performance hit.
 
 (add-hook 'lsp-mode-hook #'dap-mode)
-(add-hook 'lsp-mode-hook #'dap-ui-mode)
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
 (add-hook 'lsp-mode-hook #'lsp-lens-mode)
 
