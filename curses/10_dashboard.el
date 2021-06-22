@@ -1,4 +1,4 @@
-;;; 10_dashboard.el --- cursed dashboard             -*- lexical-binding: t; -*-
+;;; 10_dashboard.el --- Support for Dashboard -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

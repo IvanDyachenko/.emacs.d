@@ -1,4 +1,4 @@
-;;; 10_org.el --- cursed Org mode           -*- lexical-binding: t; -*-
+;;; 10_org.el --- Support for Org Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

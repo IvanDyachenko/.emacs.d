@@ -1,4 +1,4 @@
-;;; 10_helm.el --- cursed Helm                   -*- lexical-binding: t; -*-
+;;; 10_helm.el --- Support for Helm Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

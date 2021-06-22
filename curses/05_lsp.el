@@ -1,4 +1,4 @@
-;;; 05_lsp.el --- cursed lsp                     -*- lexical-binding: t; -*-
+;;; 05_lsp.el --- Support for LSP Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

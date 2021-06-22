@@ -1,4 +1,4 @@
-;;; 10_wakatime.el --- cursed Wakatime           -*- lexical-binding: t; -*-
+;;; 10_wakatime.el --- Support for Wakatime Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

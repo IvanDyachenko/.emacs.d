@@ -1,4 +1,4 @@
-;;; 10_vcs.el --- cursed version control system  -*- lexical-binding: t; -*-
+;;; 10_vcs.el --- Support for Version Control Systems  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

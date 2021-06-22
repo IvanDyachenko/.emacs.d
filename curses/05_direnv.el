@@ -1,4 +1,4 @@
-;;; 05_direnv.el --- cursed direnv                   -*- lexical-binding: t; -*-
+;;; 05_direnv.el --- Support for the direnv integration -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

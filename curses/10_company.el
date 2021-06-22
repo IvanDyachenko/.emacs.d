@@ -1,4 +1,4 @@
-;;; 10_company.el --- cursed Company             -*- lexical-binding: t; -*-
+;;; 10_company.el --- Support for Company Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

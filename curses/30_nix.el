@@ -1,4 +1,4 @@
-;;; 30_nix.el --- cursed Nix                         -*- lexical-binding: t; -*-
+;;; 30_nix.el --- Support for Nix Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

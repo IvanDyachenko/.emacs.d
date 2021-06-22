@@ -1,4 +1,4 @@
-;;; 10_flycheck.el --- cursed Flycheck           -*- lexical-binding: t; -*-
+;;; 10_flycheck.el --- Support for Flycheck Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

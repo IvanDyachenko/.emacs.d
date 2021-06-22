@@ -1,4 +1,4 @@
-;;; 10_yasnippet.el --- cursed YASnippet         -*- lexical-binding: t; -*-
+;;; 10_yasnippet.el --- Support for YASnippet Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

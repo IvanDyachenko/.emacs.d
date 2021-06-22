@@ -1,4 +1,4 @@
-;;; 00_files.el --- cursed files                     -*- lexical-binding: t; -*-
+;;; 00_files.el --- Auto-save and backup configuration -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

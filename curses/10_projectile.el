@@ -1,4 +1,4 @@
-;;; 10_projectile.el --- cursed Projectile       -*- lexical-binding: t; -*-
+;;; 10_projectile.el --- Support for Projectile Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

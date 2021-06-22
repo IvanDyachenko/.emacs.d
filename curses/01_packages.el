@@ -1,4 +1,4 @@
-;;; 01_packages.el --- cursed packages               -*- lexical-binding: t; -*-
+;;; 01_packages.el --- List of packages to be installed at Emacs startup -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

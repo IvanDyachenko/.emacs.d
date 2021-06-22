@@ -1,4 +1,4 @@
-;;; 01_ui.el --- cursed UI                       -*- lexical-binding: t; -*-
+;;; 01_ui.el --- User interface configuration -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 

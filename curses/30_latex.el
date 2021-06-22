@@ -1,4 +1,4 @@
-;;; 30_latex.el --- cursed LaTeX                     -*- lexical-binding: t; -*-
+;;; 30_latex.el --- Support for the LaTeX language -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Ivan Dyachenko
 
