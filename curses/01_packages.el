@@ -101,4 +101,10 @@
             :repo "mickeynp/ligature.el"
             :branch "master"))
 
+;; GNU Emacs Telegram client (unofficial)
+(straight-use-package
+ `(telega :type git :host github
+          :repo "zevlg/telega.el"
+          :branch "releases"))
+
 ;;; 01_packages.el ends here
