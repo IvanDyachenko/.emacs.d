@@ -43,6 +43,8 @@
   ;;(add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
+(add-hook 'after-init-hook #'global-color-identifiers-mode)
+
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'prog-mode-hook #'clean-aindent-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
