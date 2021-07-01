@@ -62,6 +62,7 @@
  ("telega.el" . "f979ac79070c39a4c483c08df96080763287ce4e")
  ("transient" . "51e833e5152e9fdcdc1dbbf34ad2d4905bde1f69")
  ("treemacs" . "2655a8976d56719add893cec45a18e018626842d")
+ ("undo-tree" . "e326c6135e62f5fe8536528d3acd5e798f847407")
  ("visual-fill-column" . "6fa9e7912af412533aec0da8b8f62c227f9f3f54")
  ("wakatime-mode" . "5e6deddda7a70f4b79832e9e8b6636418812e162")
  ("with-editor" . "5519b6a67ecd66865b4fdd5447425eee900c54f4")

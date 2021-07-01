@@ -61,6 +61,7 @@
 (straight-use-package 'company) ;; Modular in-buffer completion framework for Emacs.
 
 ;; Version Control System
+(straight-use-package 'undo-tree) ;; Treat undo history as a tree.
 (straight-use-package 'magit)
 (straight-use-package 'diff-hl) ;; Emacs package for highlighting uncommitted changes.
 

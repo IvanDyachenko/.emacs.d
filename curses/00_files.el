@@ -62,17 +62,14 @@ For example, ~/.emacs.d/.backups/20/06/15/filename"
       `((".*" ,cursed--backup-directory t)))
 
 ;; https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
-(setq version-control     t  ;; Use version numbers for backups.
-      backup-by-copying   t  ;; Copy all files, don't rename them.
-      delete-old-versions t  ;; Don't ask to delete excess backup versions.
-      kept-new-versions  10  ;; Number of newest versions to keep.
-      kept-old-versions   5) ;; Number of oldest versions to keep.
-
-(setq make-backup-files    t  ;; Backup of a file the first time it is saved.
-      vc-make-backup-files t) ;; Backup versioned files.
-
-;; Auto-save every buffer that visits a file.
-(setq auto-save-default t)
+(setq version-control      t) ;; Use version numbers for backups.
+(setq backup-by-copying    t) ;; Copy all files, don't rename them.
+(setq delete-old-versions  t) ;; Don't ask to delete excess backup versions.
+(setq kept-new-versions   10) ;; Number of newest versions to keep.
+(setq kept-old-versions    5) ;; Number of oldest versions to keep.
+(setq make-backup-files    t) ;; Backup of a file the first time it is saved.
+(setq vc-make-backup-files t) ;; Backup versioned files.
+(setq auto-save-default    t) ;; Auto-save every buffer that visits a file.
 
 ;; Sensitive data
 ;; (setq auto-mode-alist
