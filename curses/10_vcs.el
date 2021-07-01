@@ -26,6 +26,7 @@
 
 (require 'diff-hl)
 (require 'undo-tree)
+(require 'magit-todos)
 
 ;; Replace the standard Emacs' undo system with the `undo-tree-mode' system in all buffers.
 (global-undo-tree-mode)
@@ -43,5 +44,8 @@
 (global-diff-hl-mode)
 (add-hook 'magit-pre-refresh-hook  #'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
+
+;; Activate `magit-todos-mode', which automatically inserts the to-do list in Magit status buffers.
+(magit-todos-mode)
 
 ;;; 10_vcs.el ends here
