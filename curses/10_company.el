@@ -27,8 +27,8 @@
 (require 'company)
 
 (setq company-echo-delay                0)
-(setq company-idle-delay              0.3)
-(setq company-tooltip-idle-delay      0.5)
+(setq company-idle-delay              0.1)
+(setq company-tooltip-idle-delay      0.1)
 (setq company-tooltip-align-annotations t)
 (setq company-require-match        'never)
 (setq company-show-numbers              t)

@@ -52,9 +52,9 @@
 
 ;; Uncomment following section if you would like to tune lsp-mode performance
 ;; according to https://emacs-lsp.github.io/lsp-mode/page/performance/
-(setq lsp-idle-delay 0.500) ;; This variable determines how often lsp-mode will refresh
-                            ;; the highlights, lenses, links, etc while you type.
-(setq lsp-log-io       nil) ;; If set to true can cause a performance hit.
+(setq lsp-idle-delay 0.1) ;; This variable determines how often lsp-mode will refresh
+                          ;; the highlights, lenses, links, etc while you type.
+(setq lsp-log-io     nil) ;; If set to true can cause a performance hit.
 
 (add-hook 'lsp-mode-hook #'dap-mode)
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
