@@ -25,13 +25,14 @@
 ;;; Code:
 
 (require 'company)
+(require 'company-box)
 
 (setq company-echo-delay                0)
 (setq company-idle-delay              0.1)
 (setq company-tooltip-idle-delay      0.1)
 (setq company-tooltip-align-annotations t)
 (setq company-require-match        'never)
-(setq company-show-numbers              t)
+(setq company-show-quick-access         t)
 (setq company-minimum-prefix-length     1)
 (setq company-selection-wrap-around     t)
 
@@ -40,5 +41,8 @@
 
 ;; Use `company-mode' in all buffers.
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Enable `compaby-box' along with `company'.
+(add-hook 'company-mode-hook 'company-box-mode)
 
 ;;; 10_company.el ends here

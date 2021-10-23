@@ -58,7 +58,8 @@
 (straight-use-package 'helm-lsp) ;; Helm lsp integration.
 
 ;; Company
-(straight-use-package 'company) ;; Modular in-buffer completion framework for Emacs.
+(straight-use-package 'company)     ;; Modular in-buffer completion framework for Emacs.
+(straight-use-package 'company-box) ;; A company front-end with icons.
 
 ;; Version Control System
 (straight-use-package 'undo-tree)   ;; Treat undo history as a tree.
