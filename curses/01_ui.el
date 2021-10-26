@@ -40,7 +40,8 @@
 
 ;; Transparent titlebar.
 (when (memq window-system '(mac ns))
-  ;;(add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (setq ns-use-proxy-icon nil)
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 (add-hook 'after-init-hook #'global-color-identifiers-mode)
@@ -98,5 +99,7 @@ Ref:
    ))
 ;; Enables ligature checks globally in all buffers. You can also do it per mode with `ligature-mode'.
 (global-ligature-mode t)
+
+(load-theme 'sanityinc-tomorrow-blue t)
 
 ;;; 01_ui.el ends here

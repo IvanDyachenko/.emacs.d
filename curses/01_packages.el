@@ -35,7 +35,6 @@
 
 ;; Org mode
 (straight-use-package 'org)
-(straight-use-package 'ob-ammonite) ;; org-babel for scala evaluation in Ammonite.
 
 ;; Language Server Protocol
 (straight-use-package 'lsp-ui)       ;; Enable nice rendering of documentation on hover.
@@ -118,6 +117,9 @@
             :repo "mickeynp/ligature.el"
             :branch "master"))
 (straight-use-package 'color-identifiers-mode) ;; Emacs minor mode to highlight each source code identifier uniquely based on its name.
+
+;; Themes
+(straight-use-package 'color-theme-sanityinc-tomorrow)
 
 ;; GNU Emacs Telegram client (unofficial)
 (straight-use-package
