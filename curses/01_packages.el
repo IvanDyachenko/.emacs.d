@@ -53,9 +53,23 @@
 ;; Yasnippet
 (straight-use-package 'yasnippet) ;; A template system for Emacs.
 
+;; Completion frameworks
+(straight-use-package 'vertico) ;; Vertico provides a performant and minimalistic vertical completion UI
+                                ;; based on the default completion system.
+
+(straight-use-package 'consult) ;; Consult provides practical commands based on the Emacs completion function completing-read.
+(straight-use-package 'consult-lsp)
+(straight-use-package 'consult-company)
+(straight-use-package 'consult-flycheck)
+
+(straight-use-package 'marginalia) ;; This package provides marginalia-mode which adds marginalia to the minibuffer completions.
+
+(straight-use-package 'orderless) ;; This package provides an orderless completion style that divides the
+                                  ;; pattern into space-separated components, and matches candidates that
+                                  ;; match all of the components in any order.
 ;; Helm
-(straight-use-package 'helm)     ;; Emacs incremental completion and selection narrowing framework.
-(straight-use-package 'helm-lsp) ;; Helm lsp integration.
+;;(straight-use-package 'helm)     ;; Emacs incremental completion and selection narrowing framework.
+;;(straight-use-package 'helm-lsp) ;; Helm lsp integration.
 
 ;; Company
 (straight-use-package 'company)     ;; Modular in-buffer completion framework for Emacs.
