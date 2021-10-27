@@ -71,8 +71,8 @@
 ;;(straight-use-package 'helm-lsp) ;; Helm lsp integration.
 
 ;; Company
-(straight-use-package 'company)     ;; Modular in-buffer completion framework for Emacs.
-(straight-use-package 'company-box) ;; A company front-end with icons.
+(straight-use-package 'company) ;; Modular in-buffer completion framework for Emacs.
+;;(straight-use-package 'company-box) ;; A company front-end with icons.
 
 ;; Version Control System
 (straight-use-package 'undo-tree)   ;; Treat undo history as a tree.
@@ -119,7 +119,7 @@
 (straight-use-package 'color-identifiers-mode) ;; Emacs minor mode to highlight each source code identifier uniquely based on its name.
 
 ;; Themes
-(straight-use-package 'color-theme-sanityinc-tomorrow)
+;;(straight-use-package 'color-theme-sanityinc-tomorrow)
 
 ;; GNU Emacs Telegram client (unofficial)
 (straight-use-package

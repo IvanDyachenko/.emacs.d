@@ -25,7 +25,7 @@
 ;;; Code:
 
 (require 'company)
-(require 'company-box)
+;;(require 'company-box)
 
 (setq company-echo-delay                0)
 (setq company-idle-delay              0.1)
@@ -42,7 +42,7 @@
 ;; Use `company-mode' in all buffers.
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; Enable `compaby-box' along with `company'.
-(add-hook 'company-mode-hook 'company-box-mode)
+;; ;; Enable `compaby-box' along with `company'.
+;; (add-hook 'company-mode-hook 'company-box-mode)
 
 ;;; 10_company.el ends here

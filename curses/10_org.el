@@ -24,30 +24,30 @@
 
 ;;; Code:
 
-(require 'org)
+;;(require 'org)
 
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+;;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-c l") 'org-store-link)
+;;(global-set-key (kbd "C-c a") 'org-agenda)
+;;(global-set-key (kbd "C-c c") 'org-capture)
+;;(global-set-key (kbd "C-c l") 'org-store-link)
 
-(setq org-agenda-files '("~/Yandex.Disk.localized/org/"))
-(setq org-agenda-skip-unavailable-files                t)
+;;(setq org-agenda-files '("~/Yandex.Disk.localized/org/"))
+;;(setq org-agenda-skip-unavailable-files                t)
 
 ;; How do I turn on auto-fill-mode by default?
 ;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Turning-on-auto_002dfill-by-default.html
-(add-hook 'org-mode-hook '(lambda () (setq fill-column 100)))
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(add-hook 'org-mode-hook
-          '(lambda()
-             (require 'ob-ammonite)
-             (setq ob-ammonite-prompt-str "scala>")
-             (org-babel-do-load-languages 'org-babel-load-languages '((shell      . t)
-                                                                      (ditaa      . t)
-                                                                      (plantuml   . t)
-;;                                                                    (scala      . t)
-                                                                      (ammonite   . t)
-                                                                      (emacs-lisp . t)))))
+;;(add-hook 'org-mode-hook '(lambda () (setq fill-column 100)))
+;;(add-hook 'org-mode-hook 'turn-on-auto-fill)
+;;(add-hook 'org-mode-hook
+;;          '(lambda()
+;;             (require 'ob-ammonite)
+;;             (setq ob-ammonite-prompt-str "scala>")
+;;             (org-babel-do-load-languages 'org-babel-load-languages '((shell      . t)
+;;                                                                      (ditaa      . t)
+;;                                                                      (plantuml   . t)
+;;;;                                                                    (scala      . t)
+;;                                                                      (ammonite   . t)
+;;                                                                      (emacs-lisp . t)))))
 
 ;;; 10_org.el ends here
