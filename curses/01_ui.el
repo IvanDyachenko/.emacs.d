@@ -82,12 +82,13 @@ Ref:
 ;; Free monospaced font with programming ligatures.
 ;; Ref:
 ;;   - https://github.com/tonsky/FiraCode
-(set-frame-font "Fira Code 12" nil t)
+(when (member "Fira Code" (font-family-list))
+  (set-frame-font "Fira Code 12" nil t))
 
 ;; Display typographical ligatures in Emacs.
 (ligature-set-ligatures
  'prog-mode ;; Enables all ligatures for prog-mode and any major mode that derives from that mode.
- '("!!" "!!!" "!!." "!=" "!==" "\"\"\"" "#!" "##" "###" "####" "#(" "#:" "#="
+ '("!!" "!!!" "!!." "!=" "!==" "\"\"\"" "#!" "##" "###" "####" "#(" "#:" "#::" "#="
    "#?" "#[" "#_" "#_(" "#{" "$>" "%%" "&&" "'''" "**" "***" "*/" "*>" "*>" "++"
    "+++" "+>" "---" "--<" "-->" "-<" "->" "->>" "-~" ".-" ".." "..." "..<" "..="
    ".=" ".?" "/*" "//" "///" "/=" "/==" "/>" "::" ":::" "::=" ":<" ":=" ":>"
