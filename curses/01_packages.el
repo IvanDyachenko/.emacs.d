@@ -102,16 +102,20 @@
 (straight-use-package 'which-key)     ;; Emacs package that displays available keybindings in popup.
 (straight-use-package 'ace-window)    ;; Quickly switch windows in Emacs.
 (straight-use-package 'ace-jump-mode) ;; A quick cursor jump mode for Emacs.
-(straight-use-package                 ;; A emacs tree plugin like NerdTree for Vim.
- `(neotree :type git :host github
-           :repo "jaypei/emacs-neotree"
-           :branch "dev"))
+;; (straight-use-package                 ;; A emacs tree plugin like NerdTree for Vim.
+;;  `(neotree :type git :host github
+;;            :repo "jaypei/emacs-neotree"
+;;            :branch "dev"))
 (straight-use-package 'reverse-im) ;; Overrides function-key-map for preferred input-method to translate input sequences
                                    ;; to english, so we can use Emacs bindings while non-default system layout is active.
-(straight-use-package 'clean-aindent-mode) ;; Emacs extension for simple indent and unindent.
 (straight-use-package 'smartparens)        ;; Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
 (straight-use-package 'rainbow-delimiters) ;; Emacs rainbow delimiters mode.
 (straight-use-package 'all-the-icons)      ;; Icons.
+(straight-use-package 'clean-aindent-mode) ;; Emacs extension for simple indent and unindent.
+(straight-use-package 'treemacs)           ;; Treemacs is a file and project explorer similar to NeoTree or vim’s NerdTree.
+(straight-use-package 'treemacs-magit)
+(straight-use-package 'treemacs-projectile)
+(straight-use-package 'treemacs-all-the-icons)
 (straight-use-package                      ;; Display typographical ligatures in Emacs.
  `(ligature :type git :host github
             :repo "mickeynp/ligature.el"

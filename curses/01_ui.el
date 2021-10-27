@@ -26,17 +26,19 @@
 ;;; Code:
 
 (require 'which-key)
-
 (require 'ace-window)
 (require 'ace-jump-mode)
-
-(require 'neotree)
+(require 'ligature)
 (require 'reverse-im)
 (require 'smartparens)
 (require 'all-the-icons)
-(require 'rainbow-delimiters)
 (require 'clean-aindent-mode)
-(require 'ligature)
+(require 'rainbow-delimiters)
+(require 'color-identifiers-mode)
+;;(require 'neotree)
+(require 'treemacs)
+(require 'treemacs-projectile)
+(require 'treemacs-all-the-icons)
 
 ;; Transparent titlebar.
 (when (memq window-system '(mac ns))
@@ -44,15 +46,17 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
-(add-hook 'after-init-hook #'global-color-identifiers-mode)
+(reverse-im-activate "russian-computer")
 
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'prog-mode-hook #'clean-aindent-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'global-color-identifiers-mode)
 
 (global-set-key        (kbd "M-o")     'ace-window)
 (global-set-key        (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key        (kbd "C-x C-n") 'neotree-toggle)
+;;(global-set-key      (kbd "C-x C-n") 'neotree-toggle)
+(global-set-key        (kbd "C-x t t") 'treemacs)
 (define-key global-map (kbd "RET")     'newline-and-indent)
 
 (which-key-mode)
@@ -60,24 +64,8 @@
 
 (show-smartparens-global-mode t)
 
-(setq which-key-idle-delay   0.5)
 (setq aw-dispatch-always       t)
-(setq neo-smart-open           t)
-(setq neo-window-width        40)
-(setq neo-window-position 'right)
-
-(defun new-frame-setup (frame)
-  "A workaround for missing all-the-icons in neotree when starting Emacs in client mode.
-Ref:
-  - https://github.com/jaypei/emacs-neotree/issues/194
-  - https://emacs.stackexchange.com/questions/24609/determine-graphical-display-on-startup-for-emacs-server-client"
-  (if (display-graphic-p frame)
-      (setq neo-theme 'icons)))
-
-(mapc 'new-frame-setup (frame-list))                    ;; Run for already-existing frames (for single instance Emacs).
-(add-hook 'after-make-frame-functions 'new-frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
-
-(reverse-im-activate "russian-computer")
+(setq which-key-idle-delay   0.5)
 
 ;; Free monospaced font with programming ligatures.
 ;; Ref:
@@ -102,5 +90,35 @@ Ref:
 (global-ligature-mode t)
 
 (load-theme 'sanityinc-tomorrow-blue t)
+;; Provides a theme using all-the-icons.
+(treemacs-load-theme "all-the-icons")
+
+(setq treemacs-collapse-dirs           (if treemacs-python-executable 3 0)
+      treemacs-sorting                 'alphabetic-case-insensitive-desc
+      treemacs-follow-after-init       t
+      treemacs-is-never-other-window   t
+      treemacs-silent-filewatch        t
+      treemacs-silent-refresh          t
+      treemacs-width                   30)
+
+(treemacs-follow-mode    t)
+(treemacs-filewatch-mode t)
+
+;;(setq neo-smart-open           t)
+;;(setq neo-window-width        40)
+;;(setq neo-window-position 'right)
+
+;; A workaround for missing `all-the-icons' in `neotree' when starting Emacs in client mode.
+;; Ref:
+;;  - https://github.com/jaypei/emacs-neotree/issues/194#issuecomment-630929467
+;; (defun new-frame-setup (frame)
+;;   "A workaround for missing all-the-icons in neotree when starting Emacs in client mode.
+;; Ref:
+;;   - https://github.com/jaypei/emacs-neotree/issues/194
+;;   - https://emacs.stackexchange.com/questions/24609/determine-graphical-display-on-startup-for-emacs-server-client"
+;;   (if (display-graphic-p frame)
+;;       (setq neo-theme 'icons)))
+;; (mapc 'new-frame-setup (frame-list))                    ;; Run for already-existing frames (for single instance Emacs).
+;; (add-hook 'after-make-frame-functions 'new-frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
 
 ;;; 01_ui.el ends here
