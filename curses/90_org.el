@@ -1,6 +1,6 @@
-;;; 10_org.el --- Support for Org Mode -*- lexical-binding: t; -*-
+;;; 90_org.el --- Support for Org Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,7 +23,6 @@
 ;; 
 
 ;;; Code:
-
 ;;(require 'org)
 
 ;;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
@@ -49,5 +48,4 @@
 ;;;;                                                                    (scala      . t)
 ;;                                                                      (ammonite   . t)
 ;;                                                                      (emacs-lisp . t)))))
-
-;;; 10_org.el ends here
+;;; 90_org.el ends here

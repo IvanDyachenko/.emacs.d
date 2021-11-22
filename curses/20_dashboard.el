@@ -1,6 +1,6 @@
-;;; 05_direnv.el --- Support for the direnv integration -*- lexical-binding: t; -*-
+;;; 20_dashboard.el --- Support for Dashboard -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -20,14 +20,26 @@
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
+(require 'dashboard)
 
-(require 'direnv)
+(setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
 
-(add-hook 'prog-mode-hook #'direnv-update-environment)
+(setq dashboard-set-file-icons    t)
+(setq dashboard-set-heading-icons t)
+(setq dashboard-show-shortcuts  nil)
+(setq dashboard-items '((agenda    .  5)
+                        (recents   . 10)
+                        (projects  . 10)
+                        (bookmarks .  5)
+                        (registers .  5)))
 
-(direnv-mode)
+(setq initial-buffer-choice
+      (lambda () (get-buffer "*dashboard*")))
 
-;;; 05_direnv.el ends here
+(dashboard-setup-startup-hook)
+
+(provide '20_dashboard)
+;;; 20_dashboard.el ends here

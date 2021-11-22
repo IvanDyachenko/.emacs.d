@@ -1,6 +1,6 @@
-;;; 30_yaml.el --- Support for the YAML language -*- lexical-binding: t; -*-
+;;; 90_elisp.el --- Support for the Emacs Lisp language  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -16,21 +16,14 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
 ;; 
 
 ;;; Code:
-
-(require 'yaml-mode)
-
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-
-(add-hook 'yaml-mode-hook
-      '(lambda ()
-        (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-
-(provide '30_yaml)
-;;; 30_yaml.el ends here
+(add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
+(add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
+(add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
+;;; 90_elisp.el ends here

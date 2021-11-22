@@ -1,6 +1,6 @@
-;;; 10_yasnippet.el --- Support for YASnippet Mode -*- lexical-binding: t; -*-
+;;; 50_projectile.el --- Support for Projectile Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -20,12 +20,17 @@
 
 ;;; Commentary:
 
-;; A template system for Emacs.
+;; 
 
 ;;; Code:
+(require 'consult)
+(require 'projectile)
+;;(require 'consult-projectile)
 
-(require 'yasnippet)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-(yas-global-mode)
+(autoload 'projectile-project-root "projectile")
+(setq consult-project-root-function #'projectile-project-root)
 
-;;; 10_yasnippet.el ends here
+(projectile-mode +1)
+;;; 50_projectile.el ends here

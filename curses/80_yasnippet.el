@@ -1,6 +1,6 @@
-;;; 10_wakatime.el --- Support for Wakatime Mode -*- lexical-binding: t; -*-
+;;; 80_yasnippet.el --- Support for YASnippet Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -20,12 +20,10 @@
 
 ;;; Commentary:
 
-;; 
+;; A template system for Emacs.
 
 ;;; Code:
+(require 'yasnippet)
 
-(require 'wakatime-mode)
-
-(global-wakatime-mode)
-
-;;; 10_wakatime.el ends here
+(yas-global-mode)
+;;; 80_yasnippet.el ends here

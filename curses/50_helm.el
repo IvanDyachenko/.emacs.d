@@ -1,4 +1,4 @@
-;;; 10_helm.el --- Support for Helm Mode -*- lexical-binding: t; -*-
+;;; 50_helm.el --- Support for Helm Mode -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021  Ivan Dyachenko
 
@@ -23,7 +23,6 @@
 ;;
 
 ;;; Code:
-
 ;; (require 'helm)
 ;; (require 'helm-lsp)
 ;; (require 'helm-config)
@@ -53,5 +52,4 @@
 ;;   "Optional fuzzy matching.")
 
 ;; (helm-mode 1)
-
-;;; 10_helm.el ends here
+;;; 50_helm.el ends here

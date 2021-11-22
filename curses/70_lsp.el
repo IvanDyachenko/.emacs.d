@@ -1,6 +1,6 @@
-;;; 05_lsp.el --- Support for LSP Mode -*- lexical-binding: t; -*-
+;;; 70_lsp.el --- Support for LSP Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,9 +23,13 @@
 ;; 
 
 ;;; Code:
-
 (require 'lsp-ui)
 (require 'dap-mode)
+(require 'consult-lsp)
+
+(require '40_completion-framework)
+
+(define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols)
 
 ;; Remap xref-find-{definitions,references}:
 (define-key lsp-ui-mode-map [remap xref-find-references]  #'lsp-ui-peek-find-references)
@@ -45,7 +49,8 @@
 (setq lsp-ui-sideline-show-code-actions t) ;; Show code actions in sideline.
 
 (setq lsp-completion-enable       t) ;; Enable `completion-at-point' integration.
-(setq lsp-completion-provider :capf) ;; Use `company-capf' as the completion backend provider.
+(setq lsp-completion-provider :none)
+(add-hook 'lsp-completion-mode-hook #'cursed--completion-framework-lsp-setup)
 
 ;; Specifies which package to use for diagnostics.
 (setq lsp-diagnostics-provider :flycheck)
@@ -59,5 +64,4 @@
 (add-hook 'lsp-mode-hook #'dap-mode)
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
 (add-hook 'lsp-mode-hook #'lsp-lens-mode)
-
-;;; 05_lsp.el ends here
+;;; 70_lsp.el ends here

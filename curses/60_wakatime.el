@@ -1,6 +1,6 @@
-;;; 10_projectile.el --- Support for Projectile Mode -*- lexical-binding: t; -*-
+;;; 60_wakatime.el --- Support for Wakatime Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,11 +23,7 @@
 ;; 
 
 ;;; Code:
+(require 'wakatime-mode)
 
-(require 'projectile)
-
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-(projectile-mode +1)
-
-;;; 10_projectile.el ends here
+(global-wakatime-mode)
+;;; 60_wakatime.el ends here

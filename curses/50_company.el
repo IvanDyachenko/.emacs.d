@@ -1,6 +1,6 @@
-;;; 10_company.el --- Support for Company Mode -*- lexical-binding: t; -*-
+;;; 50_company.el --- Support for Company Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,9 +23,10 @@
 ;; Modular in-buffer completion framework for Emacs
 
 ;;; Code:
-
 (require 'company)
-;;(require 'company-box)
+(require 'consult-company)
+
+(define-key company-mode-map [remap completion-at-point] #'consult-company)
 
 (setq company-echo-delay                0)
 (setq company-idle-delay              0.1)
@@ -36,8 +37,8 @@
 (setq company-minimum-prefix-length     1)
 (setq company-selection-wrap-around     t)
 
-(add-to-list 'display-buffer-alist
-             '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
+ (add-to-list 'display-buffer-alist
+              '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
 ;; Use `company-mode' in all buffers.
 (add-hook 'after-init-hook 'global-company-mode)
@@ -45,4 +46,4 @@
 ;; ;; Enable `compaby-box' along with `company'.
 ;; (add-hook 'company-mode-hook 'company-box-mode)
 
-;;; 10_company.el ends here
+;;; 50_company.el ends here

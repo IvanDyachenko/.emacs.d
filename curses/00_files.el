@@ -23,10 +23,6 @@
 ;; 
 
 ;;; Code:
-
-;; Avoid outdated byte-compiled elisp files.
-;; (setq load-prefer-newer t)
-
 ;; Enable Global Auto-Revert mode for all file buffers.
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Reverting.html
 (global-auto-revert-mode 1)
@@ -39,8 +35,7 @@
     (make-directory cursed--backup-directory t))
 
 (defun cursed--make-backup-file-name (fpath)
-  "Constructs backup file name from the given FPATH.
-For example, ~/.emacs.d/.backups/20/06/15/filename"
+  "Constructs backup file name from the given FPATH."
   (let ((backup-directory (concat cursed--backup-directory
                                   (format-time-string "%y/%m/%d/")))
         (filename (file-name-nondirectory fpath)))
@@ -54,19 +49,17 @@ For example, ~/.emacs.d/.backups/20/06/15/filename"
 (setq make-backup-file-name-function #'cursed--make-backup-file-name)
 
 ;; Default and per-save backups go here:
-(setq backup-directory-alist
-      `((".*" . ,cursed--backup-directory)))
+(setq backup-directory-alist `(("." . ,cursed--backup-directory)))
 
 ;; Auto-save files go here:
-(setq auto-save-file-name-transforms
-      `((".*" ,cursed--backup-directory t)))
+(setq auto-save-file-name-transforms `((".*" ,cursed--backup-directory t)))
 
 ;; https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
 (setq version-control      t) ;; Use version numbers for backups.
 (setq backup-by-copying    t) ;; Copy all files, don't rename them.
 (setq delete-old-versions  t) ;; Don't ask to delete excess backup versions.
-(setq kept-new-versions   10) ;; Number of newest versions to keep.
 (setq kept-old-versions    5) ;; Number of oldest versions to keep.
+(setq kept-new-versions   10) ;; Number of newest versions to keep.
 (setq make-backup-files    t) ;; Backup of a file the first time it is saved.
 (setq vc-make-backup-files t) ;; Backup versioned files.
 (setq auto-save-default    t) ;; Auto-save every buffer that visits a file.
@@ -76,4 +69,5 @@ For example, ~/.emacs.d/.backups/20/06/15/filename"
 ;;       (append (list '("\\.\\(vcf\\|gpg\\)$" . sensitive-minor-mode))
 ;;               auto-mode-alist))
 
+(provide '00_files)
 ;;; 00_files.el ends here

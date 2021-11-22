@@ -1,6 +1,6 @@
-;;; 01_packages.el --- List of packages to be installed at Emacs startup -*- lexical-binding: t; -*-
+;;; 10_packages.el --- List of packages to be installed at Emacs startup -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -20,27 +20,42 @@
 
 ;;; Commentary:
 
-;;
+;; List of packages to be installed at Emacs startup.
 
 ;;; Code:
-
 (require 'straight)
 
-(straight-use-package 'direnv) ;; Direnv integration for Emacs.
+;; Direnv integration for Emacs.
+(straight-use-package 'direnv)
 
 ;; Project interaction
 (straight-use-package 'dashboard)
 (straight-use-package 'projectile)
 (straight-use-package 'wakatime-mode)
 
-;; Org mode
-(straight-use-package 'org)
+;; Completion frameworks
+(straight-use-package 'orderless) ;; This package provides an orderless completion style that divides the
+                                  ;; pattern into space-separated components, and matches candidates that
+                                  ;; match all of the components in any order.
+(straight-use-package 'consult) ;; Consult provides practical commands based on the Emacs completion function completing-read.
+(straight-use-package 'vertico) ;; Vertico provides a performant and minimalistic vertical completion UI
+                                ;; based on the default completion system.
+(straight-use-package 'marginalia) ;; This package provides marginalia-mode which adds marginalia to the minibuffer completions.
 
-;; Language Server Protocol
+;; Helm
+;;(straight-use-package 'helm)     ;; Emacs incremental completion and selection narrowing framework.
+;;(straight-use-package 'helm-lsp) ;; Helm lsp integration.
+
+;; Company
+(straight-use-package 'company) ;; Modular in-buffer completion framework for Emacs.
+(straight-use-package 'consult-company)
+
+;; Language Server Protocol (LSP)
 (straight-use-package 'lsp-ui)       ;; Enable nice rendering of documentation on hover.
 (straight-use-package 'lsp-mode)     ;; Emacs client/library for the Language Server Protocol.
 (straight-use-package 'lsp-metals)   ;; Add metals backend for `lsp-mode`.
 (straight-use-package 'lsp-treemacs) ;; Tree View Protocol for viewing the project structure and triggering compilation.
+(straight-use-package 'consult-lsp)
 
 ;; Debug Adapter Protocol
 (straight-use-package 'posframe) ;; Posframe is a pop-up tool that must be manually installed for dap-mode.
@@ -48,37 +63,19 @@
 
 ;; Flycheck
 (straight-use-package 'flycheck)  ;; Syntax checking for GNU Emacs.
+(straight-use-package 'consult-flycheck)
 
 ;; Yasnippet
 (straight-use-package 'yasnippet) ;; A template system for Emacs.
-
-;; Completion frameworks
-(straight-use-package 'vertico) ;; Vertico provides a performant and minimalistic vertical completion UI
-                                ;; based on the default completion system.
-
-(straight-use-package 'consult) ;; Consult provides practical commands based on the Emacs completion function completing-read.
-(straight-use-package 'consult-lsp)
-(straight-use-package 'consult-company)
-(straight-use-package 'consult-flycheck)
-
-(straight-use-package 'marginalia) ;; This package provides marginalia-mode which adds marginalia to the minibuffer completions.
-
-(straight-use-package 'orderless) ;; This package provides an orderless completion style that divides the
-                                  ;; pattern into space-separated components, and matches candidates that
-                                  ;; match all of the components in any order.
-;; Helm
-;;(straight-use-package 'helm)     ;; Emacs incremental completion and selection narrowing framework.
-;;(straight-use-package 'helm-lsp) ;; Helm lsp integration.
-
-;; Company
-(straight-use-package 'company) ;; Modular in-buffer completion framework for Emacs.
-;;(straight-use-package 'company-box) ;; A company front-end with icons.
 
 ;; Version Control System
 (straight-use-package 'undo-tree)   ;; Treat undo history as a tree.
 (straight-use-package 'magit)       ;;
 (straight-use-package 'magit-todos) ;; Show source files' TODOs (and FIXMEs, etc) in Magit status buffer.
 (straight-use-package 'diff-hl)     ;; Emacs package for highlighting uncommitted changes.
+
+;; Org mode
+(straight-use-package 'org)
 
 ;; Nix
 (straight-use-package 'nix-mode)
@@ -119,12 +116,6 @@
 (straight-use-package 'color-identifiers-mode) ;; Emacs minor mode to highlight each source code identifier uniquely based on its name.
 
 ;; Themes
-;;(straight-use-package 'color-theme-sanityinc-tomorrow)
+(straight-use-package 'color-theme-sanityinc-tomorrow)
 
-;; GNU Emacs Telegram client (unofficial)
-(straight-use-package
- `(telega :type git :host github
-          :repo "zevlg/telega.el"
-          :branch "releases"))
-
-;;; 01_packages.el ends here
+;;; 10_packages.el ends here

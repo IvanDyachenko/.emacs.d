@@ -1,6 +1,6 @@
-;;; 01_ui.el --- User interface configuration -*- lexical-binding: t; -*-
+;;; 20_ui.el --- User interface configuration -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -24,7 +24,6 @@
 
 
 ;;; Code:
-
 (require 'which-key)
 
 (require 'ace-window)
@@ -36,12 +35,12 @@
 (require 'all-the-icons)
 (require 'rainbow-delimiters)
 (require 'clean-aindent-mode)
-(require 'ligature)
 
 ;; Transparent titlebar.
 (when (memq window-system '(mac ns))
   (setq ns-use-proxy-icon nil)
-;;(add-to-list 'default-frame-alist '(ns-appearance . dark))
+  (setq ns-use-thin-smoothing t)
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
 (add-hook 'after-init-hook #'global-color-identifiers-mode)
@@ -67,8 +66,8 @@
 (setq neo-window-position 'right)
 
 (defun new-frame-setup (frame)
-  "A workaround for missing all-the-icons in neotree when starting Emacs in client mode.
-Ref:
+  "A workaround for missing `all-the-icons' in `neotree' when starting Emacs in client mode.
+References:
   - https://github.com/jaypei/emacs-neotree/issues/194
   - https://emacs.stackexchange.com/questions/24609/determine-graphical-display-on-startup-for-emacs-server-client"
   (if (display-graphic-p frame)
@@ -79,27 +78,5 @@ Ref:
 
 (reverse-im-activate "russian-computer")
 
-;; Free monospaced font with programming ligatures.
-;; Ref:
-;;   - https://github.com/tonsky/FiraCode
-(when (member "Fira Code" (font-family-list))
-  (set-frame-font "Fira Code 12" nil t))
-
-;; Display typographical ligatures in Emacs.
-(ligature-set-ligatures
- 'prog-mode ;; Enables all ligatures for prog-mode and any major mode that derives from that mode.
- '("!!" "!!!" "!!." "!=" "!==" "\"\"\"" "#!" "##" "###" "####" "#(" "#:" "#::" "#="
-   "#?" "#[" "#_" "#_(" "#{" "$>" "%%" "&&" "'''" "**" "***" "*/" "*>" "*>" "++"
-   "+++" "+>" "---" "--<" "-->" "-<" "->" "->>" "-~" ".-" ".." "..." "..<" "..="
-   ".=" ".?" "/*" "//" "///" "/=" "/==" "/>" "::" ":::" "::=" ":<" ":=" ":>"
-   ";;" "<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<-<" "<->" "</"
-   "</>" "<:" "<<" "<<-" "<<<" "<<=" "<=" "<=<" "<==" "<==>" "<=>" "<>" "<|"
-   "<|>" "<||" "<|||" "<~" "<~>" "<~~" "=!=" "=/" "=:=" "=<<" "==" "===" "==>"
-   "=>" "=>>" ">-" ">->" ">:" ">=" ">=>" ">>" ">>=" ">>>" "?." "?:" "?=" "??"
-   "???" "]#" "^=" "||" "|||" "~-" "~=" "~>" "~@" "~~" "~~>" "@@"
-   ))
-
-;; Enables ligature checks globally in all buffers. You can also do it per mode with `ligature-mode'.
-(global-ligature-mode t)
-
-;;; 01_ui.el ends here
+(load-theme 'sanityinc-tomorrow-blue t)
+;;; 20_ui.el ends here

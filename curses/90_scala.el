@@ -1,6 +1,6 @@
-;;; 30_scala.el --- Support for the Scala language -*- lexical-binding: t; -*-
+;;; 90_scala.el --- Support for the Scala language -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,7 +23,6 @@
 ;; 
 
 ;;; Code:
-
 (require 'lsp)
 (require 'scala-mode)
 
@@ -60,5 +59,4 @@
 ;; WORKAROUND: https://github.com/hvesalai/emacs-sbt-mode/issues/152
 (setq sbt:program-options '("-Dsbt.supershell=false")
       sbt:prefer-nested-projects t)
-
-;;; 30_scala.el ends here
+;;; 90_scala.el ends here

@@ -1,6 +1,6 @@
-;;; 30_nix.el --- Support for Nix Mode -*- lexical-binding: t; -*-
+;;; 90_nix.el --- Support for Nix Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,9 +23,7 @@
 ;; 
 
 ;;; Code:
-
 (require 'nix-mode)
 
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
-
-;;; 30_nix.el ends here
+;;; 90_nix.el ends here

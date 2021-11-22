@@ -1,6 +1,6 @@
-;;; 30_latex.el --- Support for the LaTeX language -*- lexical-binding: t; -*-
+;;; 90_latex.el --- Support for the LaTeX language -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,29 +23,21 @@
 ;; 
 
 ;;; Code:
-
 (require 'auctex-latexmk)
 
 (setq TeX-PDF-mode t)
 
-(add-hook 'LaTeX-mode-hook
-(lambda ()
-  (push
-   '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
-     :help "Run latexmk on file")
-   TeX-command-list)))
-
 (add-hook 'TeX-mode-hook
           '(lambda () (setq TeX-command-default "latexmk")))
 
-;;(setq TeX-view-program-list
-;;      '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
-;;(setq TeX-view-program-selection
-;;      '((output-pdf "PDF Viewer")))
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (push
+             '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t :help "Run latexmk on file")
+             TeX-command-list)))
 
 (custom-set-variables
- '(TeX-source-correlate-mode t)
- '(TeX-source-correlate-start-server t)
+ '(TeX-source-correlate-mode          t)
+ '(TeX-source-correlate-start-server  t)
  '(TeX-source-correlate-method 'synctex))
-
-;;; 30_latex.el ends here
+;;; 90_latex.el ends here

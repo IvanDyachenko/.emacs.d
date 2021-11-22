@@ -1,6 +1,6 @@
-;;; 10_flycheck.el --- Support for Flycheck Mode -*- lexical-binding: t; -*-
+;;; 50_flycheck.el --- Support for Flycheck Mode -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Ivan Dyachenko
+;; Copyright (C) 2021  Ivan Dyachenko
 
 ;; Author: Ivan Dyachenko <vandyachen@gmail.com>
 ;; Keywords:
@@ -23,20 +23,21 @@
 ;; Syntax checking for GNU Emacs
 
 ;;; Code:
-
 (require 'flycheck)
+(require 'consult-flycheck)
+
+;; `M-g' bindings (goto-map).
+(global-set-key (kbd "M-g f") 'consult-flycheck)
 
 ;; When set to `inherit', use the `load-path' of the current Emacs session during syntax checking.
 (setq flycheck-emacs-lisp-load-path 'inherit)
 
 (add-to-list 'display-buffer-alist
              `(,(rx bos "*Flycheck errors*" eos)
-              (display-buffer-reuse-window
-               display-buffer-in-side-window)
-              (side            . bottom)
-              (reusable-frames . visible)
-              (window-height   . 0.15)))
+               (display-buffer-reuse-window display-buffer-in-side-window)
+               (side            . bottom)
+               (reusable-frames . visible)
+               (window-height   . 0.20)))
 
 (global-flycheck-mode)
-
-;;; 10_flycheck.el ends here
+;;; 50_flycheck.el ends here
