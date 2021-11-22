@@ -32,6 +32,13 @@
 
 (straight-use-package 'direnv) ;; Direnv integration for Emacs.
 
+(straight-use-package ;; A emacs tree plugin like NerdTree for Vim.
+ `(neotree :type git :host github
+           :repo "jaypei/emacs-neotree"
+           :branch "dev"))
+(straight-use-package 'ace-window) ;; Quickly switches windows in Emacs.
+(straight-use-package 'ace-jump-mode) ;; A quick cursor jump mode for Emacs.
+
 ;; Project interaction
 (straight-use-package 'dashboard)
 (straight-use-package 'projectile)
@@ -101,12 +108,6 @@
 
 ;; UI
 (straight-use-package 'which-key)     ;; Emacs package that displays available keybindings in popup.
-(straight-use-package 'ace-window)    ;; Quickly switch windows in Emacs.
-(straight-use-package 'ace-jump-mode) ;; A quick cursor jump mode for Emacs.
-(straight-use-package                 ;; A emacs tree plugin like NerdTree for Vim.
- `(neotree :type git :host github
-           :repo "jaypei/emacs-neotree"
-           :branch "dev"))
 (straight-use-package 'reverse-im) ;; Overrides function-key-map for preferred input-method to translate input sequences
                                    ;; to english, so we can use Emacs bindings while non-default system layout is active.
 
