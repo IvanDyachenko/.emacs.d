@@ -1,4 +1,4 @@
-;;; 20_ui.el --- User interface configuration -*- lexical-binding: t; -*-
+;;; 20_interface.el --- User interface               -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021  Ivan Dyachenko
 
@@ -16,17 +16,37 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
-;; 
-
+;;
 
 ;;; Code:
 (require 'which-key)
-(require 'reverse-im)
 (require 'all-the-icons)
+(require 'reverse-im)
+
+;; Yes/No questions become y/n questions.
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Frame set-up.
+(when (display-graphic-p)
+  (setq frame-title-format "%b")
+  (setq frame-resize-pixelwise t)
+  (setq frame-inhibit-implied-resize t)
+  (setq icon-title-format frame-title-format))
+
+;; Maximize Emacs frame on start-up.
+;; References:
+;;   - https://emacs.stackexchange.com/a/3008
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(fullscreen . fullheight))
+
+;; Reverse video by default:
+;; - https://stackoverflow.com/a/19757155/5592388
+;;(add-to-list 'default-frame-alist '(reverse . t))
+;;(setq initial-frame-alist default-frame-alist)
 
 ;; Transparent titlebar.
 (when (memq window-system '(mac ns))
@@ -35,11 +55,13 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
+(setq which-key-idle-delay 0.5)
 (which-key-mode)
 (which-key-setup-side-window-bottom)
-(setq which-key-idle-delay   0.5)
+
+(load-theme 'sanityinc-tomorrow-blue t)
 
 (reverse-im-activate "russian-computer")
 
-(load-theme 'sanityinc-tomorrow-blue t)
-;;; 20_ui.el ends here
+(provide '20_interface)
+;;; 20_interface.el ends here

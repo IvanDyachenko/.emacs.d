@@ -53,7 +53,7 @@
         (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-;; `init-loader` is a loader of configuration files.
+;; `init-loader' is a loader of configuration files.
 (straight-use-package 'init-loader)
 
 ;; Load configuration files in `curses` directory.

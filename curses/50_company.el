@@ -37,8 +37,8 @@
 (setq company-minimum-prefix-length     1)
 (setq company-selection-wrap-around     t)
 
- (add-to-list 'display-buffer-alist
-              '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
 ;; Use `company-mode' in all buffers.
 (add-hook 'after-init-hook 'global-company-mode)

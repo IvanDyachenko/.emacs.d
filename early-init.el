@@ -53,44 +53,16 @@
 ;;   - https://github.com/raxod502/straight.el#getting-started
 (setq package-enable-at-startup nil)
 
-;; Yes/No questions become y/n questions.
-(defalias 'yes-or-no-p 'y-or-n-p)
-
 ;; Remove unnecessary graphical elements.
 (tooltip-mode    -1) ;; Turn off pop-up.
 (tool-bar-mode   -1) ;; Turn off toolbar.
 (menu-bar-mode   -1) ;; Turn off menubar.
 (scroll-bar-mode -1) ;; Turn off native OS scrollbar.
 
-;; Turn off sound.
-(setq visible-bell t)
+(setq visible-bell             t) ;; Turn off sound.
 (setq ring-bell-function 'ignore)
 
-;; Disable ugly button for checkboxes.
-(setq widget-image-enable nil)
-
-;; Don't insert instructions in the *scratch* buffer.
-(setq initial-scratch-message nil)
-
-;; Frame set-up.
-(when (display-graphic-p)
-  (setq frame-title-format "%b")
-  (setq frame-resize-pixelwise t)
-  (setq frame-inhibit-implied-resize t)
-  (setq icon-title-format frame-title-format))
-
-;; Don't accelerate scrolling.
-(setq mouse-wheel-progressive-speed nil)
-
-;; Maximize Emacs frame on start-up.
-;; References:
-;;   - https://emacs.stackexchange.com/a/3008
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
-(add-to-list 'default-frame-alist '(fullscreen . fullheight))
-
-;; Reverse video by default:
-;; - https://stackoverflow.com/a/19757155/5592388
-;;(add-to-list 'default-frame-alist '(reverse . t))
-;;(setq initial-frame-alist default-frame-alist)
-
+(setq widget-image-enable           nil) ;; Disable ugly button for checkboxes.
+(setq initial-scratch-message       nil) ;; Don't insert instructions in the *scratch* buffer.
+(setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling.
 ;;; early-init.el ends here
