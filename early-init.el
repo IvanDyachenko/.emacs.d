@@ -72,9 +72,6 @@
 ;; Don't insert instructions in the *scratch* buffer.
 (setq initial-scratch-message nil)
 
-;; Use space instead of tabs when indenting.
-(setq-default indent-tabs-mode nil)
-
 ;; Frame set-up.
 (when (display-graphic-p)
   (setq frame-title-format "%b")

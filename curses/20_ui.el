@@ -31,9 +31,7 @@
 
 (require 'neotree)
 (require 'reverse-im)
-(require 'smartparens)
 (require 'all-the-icons)
-(require 'rainbow-delimiters)
 (require 'clean-aindent-mode)
 
 ;; Transparent titlebar.
@@ -43,12 +41,6 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
-(add-hook 'after-init-hook #'global-color-identifiers-mode)
-
-(add-hook 'prog-mode-hook #'smartparens-mode)
-(add-hook 'prog-mode-hook #'clean-aindent-mode)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
 (global-set-key        (kbd "M-o")     'ace-window)
 (global-set-key        (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key        (kbd "C-x C-n") 'neotree-toggle)
@@ -56,8 +48,6 @@
 
 (which-key-mode)
 (which-key-setup-side-window-bottom)
-
-(show-smartparens-global-mode t)
 
 (setq which-key-idle-delay   0.5)
 (setq aw-dispatch-always       t)

@@ -25,8 +25,12 @@
 ;;; Code:
 (require 'straight)
 
-;; Direnv integration for Emacs.
-(straight-use-package 'direnv)
+(straight-use-package 'smartparens) ;; Deals with parens pairs and tries to be smart about it.
+(straight-use-package 'clean-aindent-mode) ;; Emacs extension for simple indent and unindent.
+(straight-use-package 'rainbow-delimiters) ;; Highlights delimiters such as parentheses, brackets or braces according to their depth.
+(straight-use-package 'color-identifiers-mode) ;; Highlights each source code identifier uniquely based on its name.
+
+(straight-use-package 'direnv) ;; Direnv integration for Emacs.
 
 ;; Project interaction
 (straight-use-package 'dashboard)
@@ -105,15 +109,15 @@
            :branch "dev"))
 (straight-use-package 'reverse-im) ;; Overrides function-key-map for preferred input-method to translate input sequences
                                    ;; to english, so we can use Emacs bindings while non-default system layout is active.
-(straight-use-package 'clean-aindent-mode) ;; Emacs extension for simple indent and unindent.
-(straight-use-package 'smartparens)        ;; Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
-(straight-use-package 'rainbow-delimiters) ;; Emacs rainbow delimiters mode.
+
+
+
 (straight-use-package 'all-the-icons)      ;; Icons.
 (straight-use-package                      ;; Display typographical ligatures in Emacs.
  `(ligature :type git :host github
             :repo "mickeynp/ligature.el"
             :branch "master"))
-(straight-use-package 'color-identifiers-mode) ;; Emacs minor mode to highlight each source code identifier uniquely based on its name.
+
 
 ;; Themes
 (straight-use-package 'color-theme-sanityinc-tomorrow)
