@@ -27,14 +27,17 @@
 (require 'ace-window)
 (require 'ace-jump-mode)
 
+(winner-mode 1)
+
 (setq aw-dispatch-always t)
 
 (global-set-key (kbd "M-o")     'ace-window)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 (global-set-key (kbd "C-x C-n") 'neotree-toggle)
 
+(setq neo-show-hidden-files    t)
 (setq neo-smart-open           t)
-(setq neo-window-width        50)
+(setq neo-window-width        40)
 (setq neo-window-position 'right)
 
 (defun cursed--frame-setup (frame)
