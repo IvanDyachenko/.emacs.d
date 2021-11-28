@@ -59,9 +59,9 @@
 (which-key-mode)
 (which-key-setup-side-window-bottom)
 
-(load-theme 'sanityinc-tomorrow-blue t)
-
 (reverse-im-activate "russian-computer")
+
+(load-theme 'sanityinc-tomorrow-blue t)
 
 (provide '20_interface)
 ;;; 20_interface.el ends here

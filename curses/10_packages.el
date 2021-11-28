@@ -94,6 +94,7 @@
 (straight-use-package 'auctex-latexmk)
 
 ;; Themes
+(straight-use-package 'acme-theme)
 (straight-use-package 'color-theme-sanityinc-tomorrow)
 
 ;;; 10_packages.el ends here
