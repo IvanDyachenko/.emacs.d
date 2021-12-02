@@ -26,8 +26,12 @@
 (require 'neotree)
 (require 'ace-window)
 (require 'ace-jump-mode)
+(require 'telephone-line)
 
 (winner-mode 1)
+
+;; Make Emacs display the current column number.
+(setq column-number-mode 1)
 
 (setq aw-dispatch-always t)
 
@@ -49,6 +53,8 @@ References:
       (setq neo-theme 'icons)))
 (mapc 'cursed--frame-setup (frame-list)) ;; Run for already-existing frames (for single instance Emacs).
 (add-hook 'after-make-frame-functions 'cursed--frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
+
+(telephone-line-mode 1)
 
 (provide '20_navigation)
 ;;; 20_navigation.el ends here

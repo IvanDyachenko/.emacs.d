@@ -41,6 +41,7 @@
 (straight-use-package 'wakatime-mode)
 (straight-use-package 'all-the-icons)
 (straight-use-package `(neotree :type git :host github :repo "jaypei/emacs-neotree" :branch "dev")) ;; A emacs tree plugin like NerdTree for Vim.
+(straight-use-package 'telephone-line) ;; A new implementation of Powerline for Emacs.
 
 ;; Completion Framework
 (straight-use-package 'orderless) ;; This package provides an orderless completion style that divides the
