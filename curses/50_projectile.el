@@ -23,8 +23,14 @@
 ;; 
 
 ;;; Code:
+(require 'straight)
+
+(straight-use-package 'consult)
 (require 'consult)
+
+(straight-use-package 'projectile)
 (require 'projectile)
+
 ;;(require 'consult-projectile)
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)

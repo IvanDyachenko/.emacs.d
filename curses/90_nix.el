@@ -23,7 +23,9 @@
 ;; 
 
 ;;; Code:
-(require 'nix-mode)
+(require 'straight)
+
+(straight-use-package 'nix-mode)
 
 (add-to-list 'auto-mode-alist '("\\.nix\\'" . nix-mode))
 ;;; 90_nix.el ends here

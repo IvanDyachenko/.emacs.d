@@ -23,6 +23,17 @@
 ;; 
 
 ;;; Code:
+(require 'straight)
+
+;; Highlight Lisp quotes and quoted symbols.
+(straight-use-package 'highlight-quoted)
+
+;; Highlight known Emacs Lisp symbols.
+(straight-use-package 'highlight-defined)
+
+(straight-use-package 'highlight-parentheses)
+
+
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)

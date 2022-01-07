@@ -23,7 +23,13 @@
 ;; Modular in-buffer completion framework for Emacs
 
 ;;; Code:
+(require 'straight)
+
+;; Modular in-buffer completion framework for Emacs.
+(straight-use-package 'company)
 (require 'company)
+
+(straight-use-package 'consult-company)
 (require 'consult-company)
 
 (define-key company-mode-map [remap completion-at-point] #'consult-company)

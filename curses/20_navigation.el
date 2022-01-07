@@ -23,9 +23,30 @@
 ;; 
 
 ;;; Code:
+(require 'straight)
+
+;; An Emacs tree plugin like NerdTree for Vim.
+(straight-use-package
+ `(neotree :type git
+           :host github
+           :repo "jaypei/emacs-neotree"
+           :branch "dev"))
 (require 'neotree)
+
+;; Tree View Protocol for viewing the project structure and triggering
+;; compilation.
+;; (straight-use-package 'lsp-treemacs)
+
+;; Quickly switches windows in Emacs.
+(straight-use-package 'ace-window)
 (require 'ace-window)
+
+;; A quick cursor jump mode for Emacs.
+(straight-use-package 'ace-jump-mode)
 (require 'ace-jump-mode)
+
+;; An implementation of Powerline for Emacs.
+(straight-use-package 'telephone-line)
 (require 'telephone-line)
 
 (winner-mode 1)

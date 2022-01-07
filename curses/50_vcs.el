@@ -23,11 +23,24 @@
 ;; 
 
 ;;; Code:
-(require '00_files)
+(require 'straight)
 
-(require 'diff-hl)
+;; Treat undo history as a tree.
+(straight-use-package 'undo-tree)
 (require 'undo-tree)
+
+(straight-use-package 'magit)
+(require 'magit)
+
+;; Show source files' TODOs (and FIXMEs, etc) in Magit status buffer.
+(straight-use-package 'magit-todos)
 (require 'magit-todos)
+
+;; Emacs package for highlighting uncommitted changes.
+(straight-use-package 'diff-hl)
+(require 'diff-hl)
+
+(require '00_files)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 

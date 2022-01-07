@@ -23,8 +23,15 @@
 ;; 
 
 ;;; Code:
-(require 'lsp)
-(require 'scala-mode)
+(require 'straight)
+
+(straight-use-package 'sbt-mode)
+(straight-use-package 'scala-mode)
+
+;; Add metals backend for `lsp-mode`.
+(straight-use-package 'lsp-metals)
+
+(require '70_lsp)
 
 ;; Enable scala-mode for highlighting, indentation and motion commands.
 (add-to-list 'auto-mode-alist

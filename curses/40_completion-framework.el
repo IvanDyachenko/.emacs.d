@@ -23,12 +23,30 @@
 ;; 
 
 ;;; Code:
-(require 'orderless) ;; Provides an `orderless' completion style that divides the pattern into space-separated components,
-                     ;; and matches candidates that match all of the components in any order.
-(require 'consult)   ;; Provides practical commands based on the Emacs completion function `completing-read'.
-(require 'vertico)   ;; Provides a performant and minimalistic vertical completion UI based on the default completion system.
+(require 'straight)
+
+;; Provides an `orderless' completion style that divides the pattern into
+;; space-separated components, and matches candidates that match all of the
+;; components in any order.
+(straight-use-package 'orderless)
+(require 'orderless)
+
+;; Provides practical commands based on the Emacs completion function `completing-read'.
+(straight-use-package 'consult)
+(require 'consult)
+
+;; Provides a performant and minimalistic vertical completion UI based on the
+;; default completion system.
+(straight-use-package 'vertico)
+(require 'vertico)
+
+;; This package provides `marginalia-mode' which adds marginalia to the minibuffer
+;; completions.
+(straight-use-package 'marginalia)
 (require 'marginalia)
-;;(require 'corfu)   ;; Enhances the default completion in region function with a completion overlay.
+
+;; Enhances the default completion in region function with a completion overlay.
+;;(require 'corfu)
 
 ;; Do not allow the cursor in the minibuffer prompt.
 (setq minibuffer-prompt-properties

@@ -23,8 +23,24 @@
 ;; 
 
 ;;; Code:
+(require 'straight)
+
+;; Emacs client/library for the Language Server Protocol.
+(straight-use-package 'lsp-mode)
+(require 'lsp-mode)
+
+;; Enable nice rendering of documentation on hover.
+(straight-use-package 'lsp-ui)
 (require 'lsp-ui)
+
+;; Posframe is a pop-up tool that must be manually installed for dap-mode.
+(straight-use-package 'posframe)
+
+;; Emacs client/library for Debug Adapter Protocol.
+(straight-use-package 'dap-mode)
 (require 'dap-mode)
+
+(straight-use-package 'consult-lsp)
 (require 'consult-lsp)
 
 (require '40_completion-framework)
@@ -64,4 +80,6 @@
 (add-hook 'lsp-mode-hook #'dap-mode)
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
 (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+
+(provide '70_lsp)
 ;;; 70_lsp.el ends here

@@ -23,6 +23,14 @@
 ;;
 
 ;;; Code:
+(require 'straight)
+
+;; Display typographical ligatures in Emacs.
+(straight-use-package
+ `(ligature :type git
+            :host github
+            :repo "mickeynp/ligature.el"
+            :branch "master"))
 (require 'ligature)
 
 ;; Free monospaced font with programming ligatures.

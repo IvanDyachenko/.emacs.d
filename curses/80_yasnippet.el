@@ -23,6 +23,10 @@
 ;; A template system for Emacs.
 
 ;;; Code:
+(require 'straight)
+
+;; A template system for Emacs.
+(straight-use-package 'yasnippet)
 (require 'yasnippet)
 
 (yas-global-mode)

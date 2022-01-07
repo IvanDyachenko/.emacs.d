@@ -23,6 +23,9 @@
 ;; 
 
 ;;; Code:
+;;(require 'straight)
+
+;;(straight-use-package 'org)
 ;;(require 'org)
 
 ;;(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))

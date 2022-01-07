@@ -23,6 +23,10 @@
 ;;
 
 ;;; Code:
+(require 'straight)
+
+;; Direnv integration for Emacs.
+(straight-use-package 'direnv)
 (require 'direnv)
 
 (when (executable-find "direnv")

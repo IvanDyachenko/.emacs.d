@@ -23,6 +23,10 @@
 ;;
 
 ;;; Code:
+(require 'straight)
+
+;; An extensible Emacs dashboard.
+(straight-use-package 'dashboard)
 (require 'dashboard)
 
 (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")

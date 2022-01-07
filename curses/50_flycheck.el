@@ -23,7 +23,12 @@
 ;; Syntax checking for GNU Emacs
 
 ;;; Code:
+(require 'straight)
+
+(straight-use-package 'flycheck)
 (require 'flycheck)
+
+(straight-use-package 'consult-flycheck)
 (require 'consult-flycheck)
 
 ;; `M-g' bindings (goto-map).

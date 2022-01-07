@@ -23,6 +23,9 @@
 ;; 
 
 ;;; Code:
+(require 'straight)
+
+(straight-use-package 'auctex-latexmk)
 (require 'auctex-latexmk)
 
 (setq TeX-PDF-mode t)

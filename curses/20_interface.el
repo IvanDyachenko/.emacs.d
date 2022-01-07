@@ -23,8 +23,20 @@
 ;;
 
 ;;; Code:
+(require 'straight)
+
+;; Emacs package that displays available keybindings in popup.
+(straight-use-package 'which-key)
 (require 'which-key)
+
+;; A utility package to collect various Icon Fonts and propertize them within Emacs.
+(straight-use-package 'all-the-icons)
 (require 'all-the-icons)
+
+;; Overrides function-key-map for preferred input-method to translate input
+;; sequences to english, so we can use Emacs bindings while non-default
+;; system layout is active.
+(straight-use-package 'reverse-im)
 (require 'reverse-im)
 
 ;; Yes/No questions become y/n questions.
@@ -61,7 +73,15 @@
 
 (reverse-im-activate "russian-computer")
 
-(load-theme 'sanityinc-tomorrow-blue t)
+;; Themes.
+(straight-use-package 'modus-themes)
+(load-theme 'modus-operandi t)
+
+;;(straight-use-package 'color-theme-sanityinc-tomorrow)
+;;(load-theme 'sanityinc-tomorrow-blue t)
+
+;;(straight-use-package 'acme-theme)
+;;(straight-use-package 'acme-theme)
 
 (provide '20_interface)
 ;;; 20_interface.el ends here

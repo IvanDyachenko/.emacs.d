@@ -23,10 +23,23 @@
 ;;
 
 ;;; Code:
-(require 'smartparens) ;; Deals with parens pairs and tries to be smart about it.
-(require 'clean-aindent-mode) ;; Takes care to trim down the abandoned white space characters.
-(require 'rainbow-delimiters) ;; Highlights delimiters such as parentheses, brackets or braces according to their depth.
-(require 'color-identifiers-mode) ;; Highlights each source code identifier uniquely based on its name.
+(require 'straight)
+
+;; Deals with parens pairs and tries to be smart about it.
+(straight-use-package 'smartparens)
+(require 'smartparens)
+
+;; Takes care to trim down the abandoned white space characters.
+(straight-use-package 'clean-aindent-mode)
+(require 'clean-aindent-mode)
+
+;; Highlights delimiters such as parentheses, brackets or braces according to their depth.
+(straight-use-package 'rainbow-delimiters)
+(require 'rainbow-delimiters)
+
+;; Highlights each source code identifier uniquely based on its name.
+(straight-use-package 'color-identifiers-mode)
+(require 'color-identifiers-mode)
 
 (setq-default indent-tabs-mode nil) ;; To use space instead of tabs when indenting.
 
