@@ -33,22 +33,15 @@
 
 (require '70_lsp)
 
-;; Enable scala-mode for highlighting, indentation and motion commands.
+;; Enable `scala-mode' for highlighting, indentation and motion commands.
 (add-to-list 'auto-mode-alist
              '("\\.s\\(cala\\|bt\\)$" . scala-mode))
-
-;; Turn auto-fill-mode only for code comments.
-;; https://stackoverflow.com/a/4477930/5592388
-(add-hook 'scala-mode-hook
-          (lambda()
-            (setq-local comment-auto-fill-only-comments t)
-            (auto-fill-mode 1)))
 
 ;; https://stackoverflow.com/questions/1627645/emacs-newline-and-indent-in-scala-mode
 (add-hook 'scala-mode-hook
           (lambda () (local-set-key (kbd "RET") 'reindent-then-newline-and-indent)))
 
-;; Enable lsp-mode automatically in scala files.
+;; Enable `lsp-mode' automatically in Scala files.
 (add-hook 'scala-mode-hook #'lsp)
 
 ;;(unless (fboundp 'sbt-start)

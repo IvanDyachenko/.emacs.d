@@ -33,7 +33,8 @@
 (straight-use-package 'clean-aindent-mode)
 (require 'clean-aindent-mode)
 
-;; Highlights delimiters such as parentheses, brackets or braces according to their depth.
+;; Highlights delimiters such as parentheses, brackets or braces
+;; according to their depth.
 (straight-use-package 'rainbow-delimiters)
 (require 'rainbow-delimiters)
 
@@ -41,7 +42,7 @@
 (straight-use-package 'color-identifiers-mode)
 (require 'color-identifiers-mode)
 
-(setq-default indent-tabs-mode nil) ;; To use space instead of tabs when indenting.
+(setq-default indent-tabs-mode nil) ;; To use space instead of tabs whenindenting.
 
 (add-hook 'after-init-hook
           (lambda () (setq show-trailing-whitespace 1)))
@@ -50,6 +51,13 @@
           (lambda ()
             (set 'clean-aindent-is-simple-indent t)
             (define-key global-map (kbd "RET") 'newline-and-indent)))
+
+;; Turn `auto-fill-mode' only for code comments.
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq-local comment-multi-line t)
+            (setq-local comment-auto-fill-only-comments t)
+            (auto-fill-mode 1)))
 
 (add-hook 'prog-mode-hook #'smartparens-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
