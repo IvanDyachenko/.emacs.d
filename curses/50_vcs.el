@@ -33,8 +33,8 @@
 (require 'magit)
 
 ;; Show source files' TODOs (and FIXMEs, etc) in Magit status buffer.
-(straight-use-package 'magit-todos)
-(require 'magit-todos)
+;;(straight-use-package 'magit-todos)
+;;(require 'magit-todos)
 
 ;; Emacs package for highlighting uncommitted changes.
 (straight-use-package 'diff-hl)
@@ -59,5 +59,5 @@
 (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)
 
 ;; Activate `magit-todos-mode', which automatically inserts the to-do list in Magit status buffers.
-(magit-todos-mode)
+;;(magit-todos-mode)
 ;;; 50_vcs.el ends here
