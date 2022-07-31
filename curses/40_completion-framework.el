@@ -84,12 +84,16 @@
 ;; This improves the register preview for `consult-register', `consult-register-load',
 ;; `consult-register-store' and the Emacs built-ins.
 (setq register-preview-delay 0)
+(declare-function consult-register-format "consult" ())
 (setq register-preview-function #'consult-register-format)
 
-;; This adds thin lines, sorting and hides the mode line of the window.
+;; This adds thin lines, sorting and hides the mode line of the
+;; window.
+(declare-function consult-register-window "consult" ())
 (advice-add #'register-preview :override #'consult-register-window)
 
 ;; This replaces `completing-read-multiple' with an enhanced version.
+(declare-function consult-completing-read-multiple "consult" ())
 (advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
 
 ;; Use Consult to select xref locations with preview.
@@ -104,7 +108,7 @@
  :preview-key '(:debounce 0.2 any)
  consult-grep consult-ripgrep consult-git-grep
  consult-xref consult-bookmark consult-recent-file
- consult--source-bookmark consult--source-file consult--source-project-file
+ consult--source-bookmark consult--source-recent-file consult--source-project-recent-file
  :preview-key (kbd "M-#"))
 
 ;; Enable recursive minibuffers.
@@ -126,10 +130,10 @@
                   (if vertico-mode #'consult-completion-in-region #'completion--in-region))))
 
 ;; Enable Vertico globally.
-(vertico-mode t)
+(vertico-mode)
 
 ;; Enable Marginalia globally.
-(marginalia-mode t)
+(marginalia-mode)
 
 ;; Enable indentation and completion using the `TAB' key.
 ;; Completion is often bound to `M-TAB'.

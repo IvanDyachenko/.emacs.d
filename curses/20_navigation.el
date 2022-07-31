@@ -26,12 +26,12 @@
 (require 'straight)
 
 ;; An Emacs tree plugin like NerdTree for Vim.
-(straight-use-package
- `(neotree :type git
-           :host github
-           :repo "jaypei/emacs-neotree"
-           :branch "dev"))
-(require 'neotree)
+;; (straight-use-package
+;;  `(neotree :type git
+;;           :host github
+;;           :repo "jaypei/emacs-neotree"
+;;           :branch "dev"))
+;; (require 'neotree)
 
 ;; Tree View Protocol for viewing the project structure and triggering
 ;; compilation.
@@ -58,22 +58,22 @@
 
 (global-set-key (kbd "M-o")     'ace-window)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "C-x C-n") 'neotree-toggle)
+;; (global-set-key (kbd "C-x C-n") 'neotree-toggle)
 
-(setq neo-show-hidden-files    t)
-(setq neo-smart-open           t)
-(setq neo-window-width        40)
-(setq neo-window-position 'right)
-
-(defun cursed--frame-setup (frame)
-  "A workaround for missing `all-the-icons' in `neotree' when starting Emacs in client mode.
-References:
-  - https://github.com/jaypei/emacs-neotree/issues/194
-  - https://emacs.stackexchange.com/questions/24609/determine-graphical-display-on-startup-for-emacs-server-client"
-  (if (display-graphic-p frame)
-      (setq neo-theme 'icons)))
-(mapc 'cursed--frame-setup (frame-list)) ;; Run for already-existing frames (for single instance Emacs).
-(add-hook 'after-make-frame-functions 'cursed--frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
+;; (setq neo-show-hidden-files    t)
+;; (setq neo-smart-open           t)
+;; (setq neo-window-width        40)
+;; (setq neo-window-position 'right)
+;;
+;; (defun cursed--frame-setup (frame)
+;;   "A workaround for missing `all-the-icons' in `neotree' when starting Emacs in client mode.
+;; References:
+;;   - https://github.com/jaypei/emacs-neotree/issues/194
+;;   - https://emacs.stackexchange.com/questions/24609/determine-graphical-display-on-startup-for-emacs-server-client"
+;;   (if (display-graphic-p frame)
+;;       (setq neo-theme 'icons)))
+;; (mapc 'cursed--frame-setup (frame-list)) ;; Run for already-existing frames (for single instance Emacs).
+;; (add-hook 'after-make-frame-functions 'cursed--frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
 
 (telephone-line-mode 1)
 
