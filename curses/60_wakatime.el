@@ -23,12 +23,12 @@
 ;; 
 
 ;;; Code:
-(require 'straight)
+;; (require 'straight)
 
 ;; Emacs plugin for automatic time tracking and metrics generated from your
 ;; programming activity.
-(straight-use-package 'wakatime-mode)
-(require 'wakatime-mode)
+;; (straight-use-package 'wakatime-mode)
+;; (require 'wakatime-mode)
 
-(global-wakatime-mode)
+;; (global-wakatime-mode)
 ;;; 60_wakatime.el ends here
