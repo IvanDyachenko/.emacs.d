@@ -23,24 +23,24 @@
 ;; 
 
 ;;; Code:
-(require 'straight)
+;; (require 'straight)
 
-(straight-use-package 'auctex-latexmk)
-(require 'auctex-latexmk)
+;; (straight-use-package 'auctex-latexmk)
+;; (require 'auctex-latexmk)
 
-(setq TeX-PDF-mode t)
+;; (setq TeX-PDF-mode t)
 
-(add-hook 'TeX-mode-hook
-          '(lambda () (setq TeX-command-default "latexmk")))
+;; (add-hook 'TeX-mode-hook
+;;           '(lambda () (setq TeX-command-default "latexmk")))
 
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (push
-             '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t :help "Run latexmk on file")
-             TeX-command-list)))
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (push
+;;              '("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t :help "Run latexmk on file")
+;;              TeX-command-list)))
 
-(custom-set-variables
- '(TeX-source-correlate-mode          t)
- '(TeX-source-correlate-start-server  t)
- '(TeX-source-correlate-method 'synctex))
+;; (custom-set-variables
+;;  '(TeX-source-correlate-mode          t)
+;;  '(TeX-source-correlate-start-server  t)
+;;  '(TeX-source-correlate-method 'synctex))
 ;;; 90_latex.el ends here
