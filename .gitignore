@@ -11,6 +11,9 @@ auto-save-list
 tramp
 .\#*
 
+### Gcc Emacs ###
+eln-cache
+
 # Org-mode
 .org-id-locations
 *_archive
@@ -56,6 +59,7 @@ flycheck_*.el
 # projectiles files
 .projectile
 projectile-bookmarks.eld
+projectile.cache
 
 # directory configuration
 .dir-locals.el
