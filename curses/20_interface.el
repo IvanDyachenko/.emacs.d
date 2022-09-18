@@ -80,10 +80,10 @@
 (mapc #'disable-theme custom-enabled-themes)
 
 (straight-use-package
-  `(ef-themes :type git
-               :host github
-               :repo "protesilaos/ef-themes"
-               :branch "main"))
+ `(ef-themes :type git
+             :host github
+             :repo "protesilaos/ef-themes"
+             :branch "main"))
 (require 'ef-themes)
 
 ;; The themes we provide:
@@ -95,7 +95,7 @@
 ;; deficiency): `ef-deuteranopia-dark', `ef-deuteranopia-light'.
 ;;
 ;; Load the theme of choice:
-(load-theme 'ef-summer :no-confirm)
+(load-theme 'ef-light :no-confirm)
 
 ;;(straight-use-package 'modus-themes)
 ;;(load-theme 'modus-operandi :no-confirm)
