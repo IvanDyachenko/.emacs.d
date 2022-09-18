@@ -61,6 +61,9 @@
 (let ((map dired-mode-map))
   (define-key map (kbd "<tab>") #'dired-subtree-toggle))
 
+(when (equal system-type 'darwin)
+  (setq dired-use-ls-dired nil))
+
 ;; An Emacs tree plugin like NerdTree for Vim.
 ;; (straight-use-package
 ;;  `(neotree :type git
