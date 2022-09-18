@@ -53,6 +53,13 @@
 ;;   - https://github.com/raxod502/straight.el#getting-started
 (setq package-enable-at-startup nil)
 
+;; Native compilation settings.
+(when (featurep 'native-compile)
+  (setq package-native-compile t)		          ;; Enable native compilation of packages.
+  (setq native-comp-deferred-compilation t)               ;; Asynchroneous compilation.
+  (setq native-comp-async-report-warnings-errors 'silent) ;; Report warning and errors silently.
+  (add-to-list 'native-comp-eln-load-path (expand-file-name "eln-cache/" user-emacs-directory)))
+
 ;; Remove unnecessary graphical elements.
 (tooltip-mode    -1) ;; Turn off pop-up.
 (tool-bar-mode   -1) ;; Turn off toolbar.
