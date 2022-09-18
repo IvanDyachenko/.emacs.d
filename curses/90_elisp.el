@@ -33,7 +33,6 @@
 
 (straight-use-package 'highlight-parentheses)
 
-
 (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode)
 (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)

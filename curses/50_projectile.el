@@ -25,18 +25,26 @@
 ;;; Code:
 (require 'straight)
 
-(straight-use-package 'consult)
-(require 'consult)
-
 (straight-use-package 'projectile)
 (require 'projectile)
 
-;;(require 'consult-projectile)
-
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+(straight-use-package
+ `(consult-projectile :type git
+                      :host gitlab
+                      :repo  "OlMon/consult-projectile"
+                      :branch "master"))
+(require 'consult)
+(require 'consult-projectile)
 
 (autoload 'projectile-project-root "projectile")
 (setq consult-project-root-function #'projectile-project-root)
+(define-key projectile-mode-map [remap projectile-find-file] #'consult-projectile)
+
+;; Once you have selected your project, the top-level directory of the
+;; project is immediately opened for you in a dired buffer.
+(setq projectile-switch-project-action #'projectile-dired)
 
 (projectile-mode +1)
 ;;; 50_projectile.el ends here

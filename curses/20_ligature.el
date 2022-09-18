@@ -25,6 +25,10 @@
 ;;; Code:
 (require 'straight)
 
+;; Free monospaced font with programming ligatures.
+(when (member "Fira Code" (font-family-list))
+  (set-frame-font "Fira Code 12" nil t))
+
 ;; Display typographical ligatures in Emacs.
 (straight-use-package
  `(ligature :type git
@@ -32,10 +36,6 @@
             :repo "mickeynp/ligature.el"
             :branch "master"))
 (require 'ligature)
-
-;; Free monospaced font with programming ligatures.
-(when (member "Fira Code" (font-family-list))
-  (set-frame-font "Fira Code 12" nil t))
 
 ;; Display typographical ligatures in Emacs.
 ;; Enables all ligatures for `prog-mode' and any major mode that derives from that mode.

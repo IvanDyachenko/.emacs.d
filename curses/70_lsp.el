@@ -44,7 +44,6 @@
 (require 'consult-lsp)
 
 (require '40_completion-framework)
-
 (define-key lsp-mode-map [remap xref-find-apropos] #'consult-lsp-symbols)
 
 ;; Remap xref-find-{definitions,references}:
@@ -75,7 +74,8 @@
 ;; according to https://emacs-lsp.github.io/lsp-mode/page/performance/
 (setq lsp-log-io     nil) ;; If set to true can cause a performance hit.
 (setq lsp-idle-delay 0.1) ;; This variable determines how often lsp-mode will refresh
-                          ;; the highlights, lenses, links, etc while you type.
+                          ;; the highlights, lenses, links, etc while
+                          ;; you type.
 
 (add-hook 'lsp-mode-hook #'dap-mode)
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)

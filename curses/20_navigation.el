@@ -25,6 +25,42 @@
 ;;; Code:
 (require 'straight)
 
+;; Winner Mode is a global minor mode that allows you to “undo” and
+;; “redo” changes in window configuration.
+(winner-mode 1)
+
+;; Make Emacs display the current column number.
+(setq column-number-mode 1)
+
+;; Quickly switches windows in Emacs.
+(straight-use-package 'ace-window)
+(require 'ace-window)
+
+(setq aw-dispatch-always t)
+
+(global-set-key (kbd "M-o") 'ace-window)
+
+;; A quick cursor jump mode for Emacs.
+(straight-use-package 'ace-jump-mode)
+(require 'ace-jump-mode)
+
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+
+;; An implementation of Powerline for Emacs.
+(straight-use-package 'telephone-line)
+(require 'telephone-line)
+
+(telephone-line-mode 1)
+
+;; Tree-style navigation in the current dired buffer.
+(straight-use-package 'dired-subtree)
+(require 'dired-subtree)
+
+(setq dired-subtree-use-backgrounds nil)
+
+(let ((map dired-mode-map))
+  (define-key map (kbd "<tab>") #'dired-subtree-toggle))
+
 ;; An Emacs tree plugin like NerdTree for Vim.
 ;; (straight-use-package
 ;;  `(neotree :type git
@@ -33,31 +69,6 @@
 ;;           :branch "dev"))
 ;; (require 'neotree)
 
-;; Tree View Protocol for viewing the project structure and triggering
-;; compilation.
-;; (straight-use-package 'lsp-treemacs)
-
-;; Quickly switches windows in Emacs.
-(straight-use-package 'ace-window)
-(require 'ace-window)
-
-;; A quick cursor jump mode for Emacs.
-(straight-use-package 'ace-jump-mode)
-(require 'ace-jump-mode)
-
-;; An implementation of Powerline for Emacs.
-(straight-use-package 'telephone-line)
-(require 'telephone-line)
-
-(winner-mode 1)
-
-;; Make Emacs display the current column number.
-(setq column-number-mode 1)
-
-(setq aw-dispatch-always t)
-
-(global-set-key (kbd "M-o")     'ace-window)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 ;; (global-set-key (kbd "C-x C-n") 'neotree-toggle)
 
 ;; (setq neo-show-hidden-files    t)
@@ -74,8 +85,6 @@
 ;;       (setq neo-theme 'icons)))
 ;; (mapc 'cursed--frame-setup (frame-list)) ;; Run for already-existing frames (for single instance Emacs).
 ;; (add-hook 'after-make-frame-functions 'cursed--frame-setup) ;; Run when a new frame is created (for Emacs in client/server mode).
-
-(telephone-line-mode 1)
 
 (provide '20_navigation)
 ;;; 20_navigation.el ends here

@@ -25,20 +25,6 @@
 ;;; Code:
 (require 'straight)
 
-;; Emacs package that displays available keybindings in popup.
-(straight-use-package 'which-key)
-(require 'which-key)
-
-;; A utility package to collect various Icon Fonts and propertize them within Emacs.
-(straight-use-package 'all-the-icons)
-(require 'all-the-icons)
-
-;; Overrides function-key-map for preferred input-method to translate input
-;; sequences to english, so we can use Emacs bindings while non-default
-;; system layout is active.
-(straight-use-package 'reverse-im)
-(require 'reverse-im)
-
 ;; Yes/No questions become y/n questions.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -67,21 +53,52 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
+;; Emacs package that displays available keybindings in popup.
+(straight-use-package 'which-key)
+(require 'which-key)
+
 (setq which-key-idle-delay 0.5)
+
 (which-key-mode)
 (which-key-setup-side-window-bottom)
+
+;; A utility package to collect various Icon Fonts and propertize them within Emacs.
+(straight-use-package 'all-the-icons)
+(require 'all-the-icons)
+
+;; Overrides function-key-map for preferred input-method to translate input
+;; sequences to english, so we can use Emacs bindings while non-default
+;; system layout is active.
+(straight-use-package 'reverse-im)
+(require 'reverse-im)
 
 (reverse-im-activate "russian-computer")
 
 ;; Themes.
-(straight-use-package 'modus-themes)
-(load-theme 'modus-operandi t)
 
-;;(straight-use-package 'color-theme-sanityinc-tomorrow)
-;;(load-theme 'sanityinc-tomorrow-blue t)
+;; Disable all other themes to avoid awkward blending:
+(mapc #'disable-theme custom-enabled-themes)
 
-;;(straight-use-package 'acme-theme)
-;;(straight-use-package 'acme-theme)
+(straight-use-package
+  `(ef-themes :type git
+               :host github
+               :repo "protesilaos/ef-themes"
+               :branch "main"))
+(require 'ef-themes)
+
+;; The themes we provide:
+;;
+;; Light: `ef-day', `ef-light', `ef-spring', `ef-summer'.
+;; Dark:  `ef-autumn', `ef-dark', `ef-night', `ef-winter'.
+;;
+;; Also those which are optimized for deuteranopia (red-green color
+;; deficiency): `ef-deuteranopia-dark', `ef-deuteranopia-light'.
+;;
+;; Load the theme of choice:
+(load-theme 'ef-summer :no-confirm)
+
+;;(straight-use-package 'modus-themes)
+;;(load-theme 'modus-operandi :no-confirm)
 
 (provide '20_interface)
 ;;; 20_interface.el ends here
