@@ -66,6 +66,11 @@
 (straight-use-package 'all-the-icons)
 (require 'all-the-icons)
 
+;; Adds dired support to all-the-icons.
+(straight-use-package 'all-the-icons-dired)
+(require 'all-the-icons-dired)
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
 ;; Overrides function-key-map for preferred input-method to translate input
 ;; sequences to english, so we can use Emacs bindings while non-default
 ;; system layout is active.
