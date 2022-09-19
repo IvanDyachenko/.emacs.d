@@ -32,6 +32,14 @@
 ;; Make Emacs display the current column number.
 (setq column-number-mode 1)
 
+(require 'dired)
+
+(setq dired-dwim-target t) ;; Split your window and open another dired buffer on the other window.
+(setq dired-listing-switches "-AFhlv")
+
+(add-hook 'dired-mode-hook #'hl-line-mode)
+(add-hook 'dired-mode-hook #'dired-hide-details-mode)
+
 ;; Quickly switches windows in Emacs.
 (straight-use-package 'ace-window)
 (require 'ace-window)
@@ -59,7 +67,8 @@
 (setq dired-subtree-use-backgrounds nil)
 
 (let ((map dired-mode-map))
-  (define-key map (kbd "<tab>") #'dired-subtree-toggle))
+  (define-key map (kbd "<tab>")     #'dired-subtree-toggle)
+  (define-key map (kbd "<backtab>") #'dired-subtree-cycle))
 
 (when (equal system-type 'darwin)
   (setq dired-use-ls-dired nil))
