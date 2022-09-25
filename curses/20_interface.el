@@ -71,6 +71,11 @@
 (require 'all-the-icons-dired)
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
+;; Adds icons to completion candidates in Emacs.
+(straight-use-package 'all-the-icons-completion)
+(require 'all-the-icons-completion)
+(add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup)
+
 ;; Overrides function-key-map for preferred input-method to translate input
 ;; sequences to english, so we can use Emacs bindings while non-default
 ;; system layout is active.
