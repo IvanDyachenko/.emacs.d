@@ -46,6 +46,8 @@
 (straight-use-package 'marginalia)
 (require 'marginalia)
 
+(setq marginalia-align 'right)
+
 ;; Enable Marginalia globally.
 (marginalia-mode)
 
@@ -138,8 +140,9 @@
 
 ;; Provides a performant and minimalistic vertical completion UI based on the
 ;; default completion system.
-(straight-use-package 'vertico)
+(straight-use-package '(vertico :files (:defaults "extensions/*")))
 (require 'vertico)
+(require 'vertico-multiform)
 
 ;; Use `consult-completion-in-region' if Vertico is enabled.
 ;; Otherwise use the default `completion--in-region' function.
@@ -147,6 +150,40 @@
           (lambda ()
             (setq completion-in-region-function
                   (if vertico-mode #'consult-completion-in-region #'completion--in-region))))
+
+;; Prefix the current candidate with “» “.
+;; (advice-add #'vertico--format-candidate
+;;             :around
+;;             (lambda (orig cand prefix suffix index start)
+;;               (setq cand (funcall orig cand prefix suffix index start))
+;;               (concat
+;;                (if (= vertico--index index)
+;;                    (propertize "» " 'face 'vertico-current)
+;;                  "  ")
+;;                cand)))
+
+(define-key vertico-map (kbd "<tab>") #'vertico-insert)
+
+(define-key vertico-map (kbd "C-M-n") #'vertico-next-group)
+(define-key vertico-map (kbd "C-M-p") #'vertico-previous-group)
+
+;; Enable vertico-multiform.
+(vertico-multiform-mode)
+
+;; Temporary toggling between the different display modes.
+(define-key vertico-map (kbd "M-G") #'vertico-multiform-grid)
+(define-key vertico-map (kbd "M-F") #'vertico-multiform-flat)
+(define-key vertico-map (kbd "M-R") #'vertico-multiform-reverse)
+(define-key vertico-map (kbd "M-V") #'vertico-multiform-vertical)
+(define-key vertico-map (kbd "M-U") #'vertico-multiform-unobtrusive)
+
+;; Configure the display per completion category.
+(setq vertico-multiform-categories
+      '((imenu buffer)))
+
+;; Configure the display per command.
+(setq vertico-multiform-commands
+      '((execute-extended-command reverse)))
 
 ;; Enable Vertico globally.
 (vertico-mode)
