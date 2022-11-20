@@ -55,10 +55,10 @@
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; An implementation of Powerline for Emacs.
-(straight-use-package 'telephone-line)
-(require 'telephone-line)
+;;(straight-use-package 'telephone-line)
+;;(require 'telephone-line)
 
-(telephone-line-mode 1)
+;;(telephone-line-mode 1)
 
 ;; Tree-style navigation in the current dired buffer.
 (straight-use-package 'dired-subtree)
