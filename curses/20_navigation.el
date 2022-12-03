@@ -73,6 +73,12 @@
 (when (equal system-type 'darwin)
   (setq dired-use-ls-dired nil))
 
+;; A tree layout file explorer for Emacs
+(require 'treemacs)
+
+;; When non-nil treemacs will use TUI string icons even when running in a GUI.
+(setq treemacs-no-png-images t)
+
 ;; An Emacs tree plugin like NerdTree for Vim.
 ;; (straight-use-package
 ;;  `(neotree :type git

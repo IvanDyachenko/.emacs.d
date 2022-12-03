@@ -64,11 +64,18 @@
 (setq lsp-ui-sideline-show-code-actions t) ;; Show code actions in sideline.
 
 (setq lsp-completion-enable       t) ;; Enable `completion-at-point' integration.
+(setq lsp-completion-show-kind    t)
+(setq lsp-completion-show-detail  t)
 (setq lsp-completion-provider :none)
 (add-hook 'lsp-completion-mode-hook #'cursed--completion-framework-lsp-setup)
 
+(setq lsp-signature-auto-activate          t)
+(setq lsp-signature-render-documentation nil)
+
 ;; Specifies which package to use for diagnostics.
 (setq lsp-diagnostics-provider :flycheck)
+
+(setq lsp-modeline-diagnostics-enable t)
 
 ;; Uncomment following section if you would like to tune lsp-mode performance
 ;; according to https://emacs-lsp.github.io/lsp-mode/page/performance/
