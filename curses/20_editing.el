@@ -29,6 +29,8 @@
 (straight-use-package 'smartparens)
 (require 'smartparens)
 
+(add-hook 'prog-mode-hook #'smartparens-mode)
+
 ;; Takes care to trim down the abandoned white space characters.
 (straight-use-package 'clean-aindent-mode)
 (require 'clean-aindent-mode)
@@ -38,9 +40,13 @@
 (straight-use-package 'rainbow-delimiters)
 (require 'rainbow-delimiters)
 
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 ;; Highlights each source code identifier uniquely based on its name.
-(straight-use-package 'color-identifiers-mode)
-(require 'color-identifiers-mode)
+;; (straight-use-package 'color-identifiers-mode)
+;; (require 'color-identifiers-mode)
+
+;;(add-hook 'prog-mode-hook #'global-color-identifiers-mode)
 
 (setq-default indent-tabs-mode nil) ;; To use space instead of tabs whenindenting.
 
@@ -58,10 +64,6 @@
             (setq-local comment-multi-line t)
             (setq-local comment-auto-fill-only-comments t)
             (auto-fill-mode 1)))
-
-(add-hook 'prog-mode-hook #'smartparens-mode)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook #'global-color-identifiers-mode)
 
 (show-smartparens-global-mode t)
 

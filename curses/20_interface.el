@@ -53,6 +53,19 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
+;; Add frame borders and window dividers.
+(modify-all-frames-parameters
+ '((right-divider-width   . 20)
+   (internal-border-width . 20)))
+
+(dolist (face '(window-divider
+                window-divider-last-pixel
+                window-divider-first-pixel))
+  (face-spec-reset-face face)
+  (set-face-foreground face (face-attribute 'default :background)))
+
+(set-face-background 'fringe (face-attribute 'default :background))
+
 ;; Emacs package that displays available keybindings in popup.
 (straight-use-package 'which-key)
 (require 'which-key)
@@ -96,16 +109,7 @@
              :branch "main"))
 (require 'ef-themes)
 
-;; The themes we provide:
-;;
-;; Light: `ef-day', `ef-light', `ef-spring', `ef-summer'.
-;; Dark:  `ef-autumn', `ef-dark', `ef-night', `ef-winter'.
-;;
-;; Also those which are optimized for deuteranopia (red-green color
-;; deficiency): `ef-deuteranopia-dark', `ef-deuteranopia-light'.
-;;
-;; Load the theme of choice:
-(load-theme 'ef-light :no-confirm)
+(load-theme 'ef-tritanopia-light :no-confirm)
 
 ;;(straight-use-package 'modus-themes)
 ;;(load-theme 'modus-operandi :no-confirm)
