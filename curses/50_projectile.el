@@ -30,6 +30,12 @@
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
+(setq projectile-indexing-method 'hybrid)
+
+;; Once you have selected your project, the top-level directory of the
+;; project is immediately opened for you in a dired buffer.
+(setq projectile-switch-project-action #'projectile-dired)
+
 (straight-use-package
  `(consult-projectile :type git
                       :host gitlab
@@ -38,13 +44,9 @@
 (require 'consult)
 (require 'consult-projectile)
 
-(autoload 'projectile-project-root "projectile")
-(setq consult-project-root-function #'projectile-project-root)
 (define-key projectile-mode-map [remap projectile-find-file] #'consult-projectile)
 
-;; Once you have selected your project, the top-level directory of the
-;; project is immediately opened for you in a dired buffer.
-(setq projectile-switch-project-action #'projectile-dired)
+(setq consult-project-function (lambda (_) (projectile-project-root)))
 
 (projectile-mode +1)
 ;;; 50_projectile.el ends here

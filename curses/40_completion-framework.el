@@ -113,15 +113,15 @@
 ;; enabled in general and disable the automatic preview only for
 ;; commands, where the preview may be expensive due to file loading.
 (consult-customize
- consult-grep
- consult-ripgrep
- consult-git-grep
- consult-xref
- consult-bookmark
- consult-recent-file
- consult--source-bookmark
- consult--source-recent-file
- consult--source-project-recent-file
+;; consult-grep
+;; consult-ripgrep
+;; consult-git-grep
+;; consult-xref
+;; consult-bookmark
+;; consult-recent-file
+;; consult--source-bookmark
+;; consult--source-recent-file
+;; consult--source-project-recent-file
  :preview-key (kbd "M-#"))
 
 (consult-customize

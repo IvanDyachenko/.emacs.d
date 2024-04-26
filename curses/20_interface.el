@@ -35,6 +35,10 @@
   (setq frame-inhibit-implied-resize t)
   (setq icon-title-format frame-title-format))
 
+;; High quality scrolling.
+(when (fboundp 'pixel-scroll-precision-mode)
+  (pixel-scroll-precision-mode 1))
+
 ;; Maximize Emacs frame on start-up.
 ;; References:
 ;;   - https://emacs.stackexchange.com/a/3008

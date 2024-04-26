@@ -74,6 +74,7 @@
   (setq dired-use-ls-dired nil))
 
 ;; A tree layout file explorer for Emacs
+(straight-use-package 'treemacs)
 (require 'treemacs)
 
 ;; When non-nil treemacs will use TUI string icons even when running in a GUI.
